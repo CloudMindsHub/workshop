@@ -1,6 +1,8 @@
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
 canonifyURLs = true
+baseURL = "https://cloudmindshub.github.io/workshop/"
+publishDir = "public"
 
 # For search functionality
 [outputs]
@@ -12,7 +14,7 @@ home = [ "HTML", "RSS", "JSON"]
   # Git hub repo link
   editURL = ""
   description = ""
-  author = "journeyoftheaverageguy@gmail.com"
+  author = "npnam.techii@gmail.com"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
