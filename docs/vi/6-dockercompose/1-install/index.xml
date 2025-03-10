@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cài đặt Docker Compose on Thiết lập AWS Account</title>
+    <link>https://cloudmindshub.github.io/workshop/vi/6-dockercompose/1-install/</link>
+    <description>Recent content in Cài đặt Docker Compose on Thiết lập AWS Account</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="https://cloudmindshub.github.io/workshop/vi/6-dockercompose/1-install/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

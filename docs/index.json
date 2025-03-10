@@ -1,0 +1,232 @@
+[
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-rds/1-subnetgroup/",
+	"title": "Create DB Subnet group",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Create a DB Subnet Group Go to RDS, select Subnet Groups, and click Create. Enter the name: DockerSwarm-WS-Subnet-Group Description: Subnet Group for FCJ Management Select the VPC you created. Choose the private subnets and click Create to create the group. Successfully created. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/4-ecr/1-ecr/",
+	"title": "Create ECR reponsitory",
+	"tags": [],
+	"description": "",
+	"content": "Steps to create an ECR repository Access the AWS console, search for ECR, and select Create repository. Enter the name: aws-fcj-management Select Scan on push and create a new one. Successfully create the repository. Select it and View push commands to see the push commands. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/5-dockerswarm/1-create/",
+	"title": "Create nodes worker",
+	"tags": [],
+	"description": "",
+	"content": "Steps to create worker nodes In this section, we will need to create two additional EC2 instances to serve as the remaining nodes, while the current instance will act as the manager node. Therefore, this step will be quite similar to creating an EC2 instance in the preparation section.\nFirst, we will create node 1. Enter the name: DockerSwarm-Instance-Node1. Select Type: t2.micro (free tier). Key pair: Choose the same key pair as used when creating the EC2 instance. Select the prepared VPC. Subnet: Choose public Subnet 2. Select the security group (SG) that was created for EC2. Now create node 2. Enter the name: DockerSwarm-Instance-Node2. Select Type: t2.micro (free tier). Key pair: Choose the same key pair as used when creating the EC2 instance. Select the prepared VPC. Subnet: Choose public Subnet 3. Select the security group (SG) that was created for EC2. Review the details and select Launch instance to create. Let me know if you need any additional changes! "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-preparation/1-github/",
+	"title": "GitHub Repository",
+	"tags": [],
+	"description": "",
+	"content": "Prepare a source code available on GitHub For this part, I have prepared a source code that has been pushed to GitHub as follows:\nhttps://github.com/AWS-First-Cloud-Journey/AWS-FCJ-Management.git "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/6-dockercompose/1-install/",
+	"title": "Install Docker Compose",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Install Docker Compose Since Docker has already been installed, there is no need to download it again. Enable Docker to start automatically. sudo chkconfig docker on Install the latest version of Docker Compose. sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose Add it to the path. export PATH=$PATH:/usr/local/bin Grant permissions to Docker Compose. sudo chmod +x /usr/local/bin/docker-compose Check the installation. docker-compose --version "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/",
+	"title": "Integrating Docker Swarm with AWS Services",
+	"tags": [],
+	"description": "",
+	"content": "Integrating Docker Swarm with AWS Services Overview In this workshop, I will present the process of deploying and working with Docker, a powerful tool for managing and operating containers. To effectively orchestrate and manage containers, I used Docker Swarm – a built-in solution provided by Docker. Additionally, I leveraged several services on AWS to optimize the deployment and management of the system on the cloud platform, which helps enhance the flexibility and scalability of the application.\nArchitecture Implementation process: Clone GitHub Repository → EC2 Instance → Connect RDS → Dockerfile → Push image → ECR → Pull image → Docker Compose → Deploy Service → Docker Swarm Cluster.\nMain content Introduce Preparation RDS (Database) Elastic Container Registry (ECR) Docker Swarm Docker Compose Troubleshooting Clear Resources "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/1-introduce/",
+	"title": "Introduce",
+	"tags": [],
+	"description": "",
+	"content": "Scene The company has a web application consisting of two containers:\nWeb container: Runs the main web application. Database container: Contains the MySQL database. The company decided to use Docker Swarm to deploy these containers on three small EC2 instances on AWS. Swarm helps them:\nAutomatically load balance between the servers to avoid overloading a specific node. Automatically restart the containers in case of failure. Docker Swarm is an ideal solution for small companies or projects that do not require complex orchestration, where Kubernetes or ECS may become excessive and difficult to manage. Docker Swarm provides sufficient features to automate and manage containers effectively, while also being easy to use and well-integrated with Docker.\nWhat is Docker? Docker is an open-source platform that allows you to automate the deployment, management, and running of applications within containers. Docker simplifies the development and deployment process by ensuring that your application runs consistently in any environment.\nDocker Compose? Docker Compose is a tool that helps define and run multi-container Docker applications. Instead of having to run individual Docker commands for each container, Docker Compose allows you to manage all the related containers in an application using a single configuration file.\nWhy use Docker Swarm? Docker Swarm is a container orchestration tool integrated into Docker. It allows you to deploy and manage containers on one or more servers (nodes) as a cluster. Docker Swarm makes it easy to control how containers are deployed, balance loads, and manage resources within the cluster.\nIt is a suitable choice for medium and small projects where simplicity and ease of deployment are top priorities.\nAlthough Docker Swarm is not integrated with AWS management services like ECS or EKS, you can still set up and manage a Docker Swarm cluster on a few AWS resources such as EC2 instances.\nThis particularly helps those who are already familiar with Docker to manage containers more easily than with ECS, even when using it on AWS.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/7-troubleshooting/1-npm/",
+	"title": "Npm Start Error",
+	"tags": [],
+	"description": "",
+	"content": "Error when running the npm start command When running the following command: npm start The error appears as follows: The issue is caused by a problem with nodemon during installation. To fix it, you need to reinstall and grant the necessary permissions. //cap quyen chmod +x /home/ec2-user/AWS-FCJ-Management/node_modules/.bin/nodemon //xoa di tai lai npm uninstall nodemon npm install nodemon --save-dev After successfully reinstalling, run the npm start command again. npm start "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/5-dockerswarm/2-connect/",
+	"title": "Connect the nodes",
+	"tags": [],
+	"description": "",
+	"content": "Steps to connect the nodes I will use VSCode to connect them similarly to how we connected in the Preparation section to link these two worker nodes, then ping both to check internet connectivity. ping -c5 amazon.com Next, I will install Docker on both nodes so that we can use Docker commands. sudo amazon-linux-extras install docker sudo service docker start sudo usermod -a -G docker ec2-user After that, I will log in to ECR and pull down the previously built image to be able to run it. You can use IAM to automatically log in for the virtual machines without needing to use the “aws configure” command. This will help you work faster, more efficiently, and securely. (Refer to the Troubleshooting section)\naws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin \u0026lt;Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com docker pull \u0026lt;URI_image\u0026gt; Create a Docker cluster for the manager node. Use the token command to paste into the other two nodes. docker swarm init --advertise-addr \u0026lt;MANAGER-IP-PUBLIC-EC2\u0026gt; docker swarm join --token \u0026lt;Token_Manage\u0026gt; To check the connection, I will use the following command on the manager node. docker node ls "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-rds/2-dbinstance/",
+	"title": "Create DB instance",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Create a DB Instance (RDS) Access the Databases section in RDS and click Create Database. Select MySQL for data storage. Choose the Free Tier template since this is just a test environment. Since we are using the Free Tier, there are many limitations such as: restrictions on database size, instance type limitations, limited features, restrictions on the number of databases, support for only certain database types, no technical support, performance limitations, and a limited usage period.\nEnter the identifier: fcj-management-db-instance Username: admin Password: 123Vodanhphai Choose the default configuration. Select the VPC and Subnet Group created earlier. Choose the Security Group created for the DB. Review and click Create. The creation process will take about 10-15 minutes to complete the RDS setup. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/6-dockercompose/2-create/",
+	"title": "Create file docker compose",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Create the docker-compose.yaml File Now we need to configure the docker-compose.yaml file so that it can automatically create services more easily. First, we\u0026rsquo;ll clear the contents inside it. truncate -s 0 docker-compose.yaml Then we\u0026rsquo;ll use the command to open the file and configure it. vi docker-compose.yaml Inside the file, we need to configure it as follows: version: \u0026#34;3.9\u0026#34; services: app: image: ${IMAGE} # URI image tren ECR environment: # enviroment database - DB_HOST=${DB_HOST} - DB_NAME=${DB_NAME} - DB_USER=${DB_USER} - DB_PASS=${DB_PASS} deploy: replicas: 3 update_config: parallelism: 1 order: stop-first restart_policy: condition: on-failure ports: - target: 5000 published: 5000 protocol: tcp mode: host #ingress networks: - app-network networks: app-network: driver: overlay When selecting the mode: - \u0026ldquo;Host\u0026rdquo; mode allows only one container corresponding to one replica to run on a node on a certain port, for example, port 5000. To run more, manual configuration is needed. - \u0026ldquo;Ingress\u0026rdquo; mode allows running multiple replicas on one node. However, since we are using the RDS free tier, it limits running on multiple nodes and replicas. Therefore, I chose the above mode for this example.\nUse the command to check the file again. cat docker-compose.yaml The .env file cannot be passed into Docker Swarm, so we need to pass it manually. export IMAGE=\u0026lt;Image_URI\u0026gt; //Change image on ECR your export DB_HOST=\u0026lt;Endpoint_RDS\u0026gt; //Change endpoin on RDS your export DB_NAME=\u0026lt;db_name\u0026gt; //Change name database your export DB_USER=\u0026lt;User_name\u0026gt; //Change name user on RDS your export DB_PASS=\u0026lt;password\u0026gt; //Change passwork on RDS your "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-preparation/2-vpc/",
+	"title": "Create VPC",
+	"tags": [],
+	"description": "",
+	"content": "Steps to create VPC Go to AWS console, find and create VPC. Select VPC and more Name: Docker-WS Ipv4: 10.0.0.0/16 I will configure as follows: Then check again and press create Create success Configure Subnet Public ipv4 public subnets we just created to be able to ping the internet Select Auto-assign IP and save You do it myself with the remaining 2 public Subnets.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/7-troubleshooting/2-iam/",
+	"title": "Creating IAM Role",
+	"tags": [],
+	"description": "",
+	"content": " When you want to log into ECR, you typically need to use the aws configure command and enter your access key to proceed. To simplify and enhance security, you can create an IAM role for EC2 instances, allowing them to automatically log in to ECR without manual configuration.\nSteps to Create an IAM Role In the AWS console, search for IAM, go to Roles, and select Create role. Choose the EC2 service. Add the required permission to access ECR. Name the role: ECR-Access-Role\nDescription: Allow EC2 instance to all ECR\nReview your configuration and click Create. Role created successfully. Next, go to your EC2 instance and assign the newly created role to it. Find the correct role and select Update. Make sure to assign this role to all running instances in your cluster to allow each node to access ECR.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-preparation/",
+	"title": "Preparation",
+	"tags": [],
+	"description": "",
+	"content": "The following are some simple preparations to facilitate our workshop by setting up essential tools such as VPC, Security Group, EC2, and GitHub.\nNội Dung GitHub Repository Create VPC Create Security Group Create EC2 Connect with VS Code "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/4-ecr/2-push/",
+	"title": "Push image on ECR",
+	"tags": [],
+	"description": "",
+	"content": "Steps to push an image to ECR Now we will build the image, but first, we need to log in using the previously created access key so that it can be used to log in to AWS. The access key is very sensitive information, so make sure not to expose any details about it. If you are unsure how to create one, you can refer to Amazon\u0026rsquo;s documentation or other sources on \u0026ldquo;How to create an access key\u0026rdquo;.\nOnce the file is saved, access it again by returning to VS Code where we previously SSHed into EC2 during the preparation step. Then, use the command to connect and enter the access key information. aws configure To push the image to ECR, use the commands shown in the ECR repository section (copy them all). Log in to ECR: aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin \u0026lt;AWS_Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com Build an image: docker build -t aws-fcj-management . Tag the image and push it to ECR: docker tag aws-fcj-management:latest \u0026lt;AWS_Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com/aws-fcj-management:latest docker push \u0026lt;AWS_Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com/aws-fcj-management:latest Go back to ECR to check if the image exists. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-rds/3-connect/",
+	"title": "Connecting to the Database",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Connect to the Database Log in as the root user and begin installing SQL: sudo su yum install mariadb Copy the RDS endpoint to use for the connection. Check SQL version and connect to the database (the RDS you created). Adjust the details (RDS endpoint, user name such as admin, and the password you set in RDS): mysql --version mysql -h mysql–instance1.123456789012.us-east-1.rds.amazonaws.com -P 3306 -u mymasteruser -p Create a database and store it on RDS: Create database usermgt; USE usermgt; CREATE TABLE `usermgt`.`user` ( `id` INT NOT NULL auto_increment, `first_name` VARCHAR(45) NOT NULL, `last_name` VARCHAR(45) NOT NULL, `email` VARCHAR(45) NOT NULL, `phone` VARCHAR(45) NOT NULL, `comments` TEXT NOT NULL, `status` VARCHAR(10) NOT NULL DEFAULT \u0026#39;active\u0026#39;, PRIMARY KEY (`id`) ) engine = innodb; INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `phone`, `comments`, `status`) VALUES (NULL, \u0026#39;Amanda\u0026#39;, \u0026#39;Nunes\u0026#39;, \u0026#39;anunes@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Alexander\u0026#39;, \u0026#39;Volkanovski\u0026#39;, \u0026#39;avolkanovski@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Khabib\u0026#39;, \u0026#39;Nurmagomedov\u0026#39;, \u0026#39;knurmagomedov@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Kamaru\u0026#39;, \u0026#39;Usman\u0026#39;, \u0026#39;kusman@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Israel\u0026#39;, \u0026#39;Adesanya\u0026#39;, \u0026#39;iadesanya@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;); Check the created database using the following command: SELECT * FROM user; "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-preparation/3-securitygroup/",
+	"title": "Create Security Group",
+	"tags": [],
+	"description": "",
+	"content": "Steps to create Security Group EC2 Go to AWS console, search for VPC and select Security Group Name: DockerSwarm-WS-SG Describe: Allow SSH for EC2 Select the created VPC Add inbound rules as follows: Then click create new Steps to create a Security Group for RDS Enter name: DockerSwarm-WS-DB-SG Description: Security Group for DB instance Select the created VPC Inbound rule: select the previously configured Security Group. Then click create new Check 2 created Security Groups "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-rds/",
+	"title": "RDS (Database)",
+	"tags": [],
+	"description": "",
+	"content": "We will create a database on RDS to store the necessary data, making it easy to use.\nNội Dung Create DB Subnet group Create DB instance Connect Database Install Git Install Node.js và Npm Deploy Test on EC2 Public IP "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/6-dockercompose/3-run/",
+	"title": "Run file docker compose",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Run the Docker Compose File In this section, we use Docker Compose to configure and run Docker Swarm services. Therefore, we need to pay close attention to the details of the configurations, such as ensuring the security group is correct, IAM permissions are sufficient, and that RDS can connect properly. Carefully check all previous configurations and troubleshoot any errors to run successfully.\nRun the docker-compose file. docker stack deploy -c docker-compose.yaml \u0026lt;STACK_NAME\u0026gt; Check if the service is running. docker service ls Check the logs for any errors. Check the containers distributed across the nodes. Verify that the containers on each node are operational. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/4-ecr/3-test/",
+	"title": "Test deploy image on ECR",
+	"tags": [],
+	"description": "",
+	"content": "Steps to test the image on ECR Once the image has been pushed to ECR, we will test to see if the image is working properly: docker run --env-file .env -p 5000:5000 \u0026lt;Image_URI_ECR\u0026gt; Use the public IP of the EC2 instance along with port 5000 to check it on the web: http://\u0026lt;public_ip_EC2\u0026gt;:5000 "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/6-dockercompose/4-check/",
+	"title": "Check nodes",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Check Containers on Each Node Run and check the web on port 5000 of all three nodes to see if they are functioning well. First, check the manager node: http://\u0026lt;public_ip_EC2\u0026gt;:5000 Next, check worker node 1: http://\u0026lt;public_ip_EC2\u0026gt;:5000 Finally, check worker node 2: http://\u0026lt;public_ip_EC2\u0026gt;:5000 "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-preparation/4-ec2/",
+	"title": "Create EC2",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Create an EC2 Instance Go to EC2 in the AWS console and click Launch instance to create one. Enter the name: DockerSwarm-Instance Use Amazon Linux 2 Choose t2.micro Select the key pair you have created. If you do not have a key pair, you need to create a new one and save it for SSH.\nChoose the VPC you have created. Choose the Subnet public 1 to enable internet access. Choose the Security group you created for the EC2 instance. Review the settings and click Launch instance to create it. Check the status. Connect by copying the command for SSH. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/4-ecr/",
+	"title": "Elastic Container Registry (ECR)",
+	"tags": [],
+	"description": "",
+	"content": "Amazon Elastic Container Registry (ECR) is a container image management service provided by AWS. ECR allows you to securely, efficiently, and scalable store, manage, and deploy container images.\nContents Create ECR repository Push image to ECR Test the image on ECR "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-rds/4-git/",
+	"title": "Installing Git",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Install Git Install Git on Amazon Linux 2 using the following command: sudo yum install git Git clone a GitHub repository that you have prepared earlier. git init git clone https://github.com/AWS-First-Cloud-Journey/AWS-FCJ-Management.git Navigate into the directory of the cloned repository. ls cd AWS-FCJ-Management/ "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-preparation/5-vscode/",
+	"title": "Connecting with VSCode",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Connect with VSCode Open VSCode and paste the link you copied from the previous EC2 section to connect. Edit the configuration and link it to the key pair file appropriately. This part is quite important as you need to point to the location where you downloaded the file, and the EC2 configurations must be accurate to establish a connection.\nSuccessful connection. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/5-dockerswarm/",
+	"title": "Docker Swarm",
+	"tags": [],
+	"description": "",
+	"content": "Docker Swarm is a useful tool for managing containers, so we will use it in this section and follow the steps below:\nContents Create nodes worker Connect nodes "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-rds/5-npm/",
+	"title": "Installing Node.js and Npm",
+	"tags": [],
+	"description": "",
+	"content": "Steps to Install Node.js and Npm Note: Before proceeding with this section, make sure you’ve navigated to the directory of the repository you cloned earlier. Then, install the necessary dependencies based on the operating system you configured for your virtual machine (currently using Amazon Linux 2).\nInstall Node Version Manager (nvm): curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash Activate the installed nvm: . ~/.nvm/nvm.sh Use nvm to install Node.js: nvm install 16 Verify the installation using the following commands: node -v npm -v Install npm dependencies: npm install Install dotenv: npm install dotenv Since there might be some errors, run the following command to fix them: npm audit fix "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/6-dockercompose/",
+	"title": "Docker Compose",
+	"tags": [],
+	"description": "",
+	"content": "Docker Compose is used in this section to automatically create services and replicas to distribute among the nodes.\nContent Install Docker Compose Create file docker-compose.yaml Run file docker compose Check Nodes "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-rds/6-deploy/",
+	"title": "Test Deployment on EC2 Public IP",
+	"tags": [],
+	"description": "",
+	"content": "Steps for Deployment on EC2 Public IP Install Docker Engine: sudo amazon-linux-extras install docker Start Docker: sudo service docker start sudo usermod -a -G docker ec2-user Configure the .env file: touch .env vi .env Configure the content inside .env (you will replace the values in parentheses to match the configurations you created earlier): DB_HOST= \u0026#34;Endpoint RDS\u0026#34; DB_NAME= \u0026#34;db name\u0026#34; DB_USER= \u0026#34;db user\u0026#34; DB_PASS= \u0026#34;db password\u0026#34; Use the following command to check the file: cat .env Use this command to check the code: npm start Use this command to verify if the new libraries you downloaded are working fine before building the image. This part is prone to errors, so you might need to check the Troubleshooting section or look for solutions online.\nIf the test is successful, you can manually build an image using: docker build -t awsfcj . docker images Run the image with this command: docker run --env-file .env -p 5000:5000 awsfcj Use the public IP of your EC2 instance along with port 5000 to check the application on the web: http://\u0026lt;public_ip_EC2\u0026gt;:5000 "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/7-troubleshooting/",
+	"title": "Troubleshooting",
+	"tags": [],
+	"description": "",
+	"content": "During deployment, numerous errors can occur if you don\u0026rsquo;t fully understand the structure and configuration. Below are the common errors encountered in this project.\nNội Dung Npm IAM "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/8-clearresources/",
+	"title": "Clear Resources",
+	"tags": [],
+	"description": "",
+	"content": "Clear ECR Delete the previously created images. Delete the repository. Clear RDS Delete the DB instance first. Check the option shown in the image to completely remove the instance (this process takes around 10–15 minutes). Once the deletion is complete, you can then proceed to delete the subnet group. Clear EC2 instance Delete all three EC2 instances that were created. Clear VPC Delete the VPC that was created. Make sure to double-check that all resources have been successfully deleted to complete the cleanup process.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

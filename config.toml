@@ -2,7 +2,7 @@
 theme = "hugo-theme-learn"
 canonifyURLs = true
 baseURL = "https://cloudmindshub.github.io/workshop/"
-publishDir = "public"
+publishDir = "docs"
 
 # For search functionality
 [outputs]

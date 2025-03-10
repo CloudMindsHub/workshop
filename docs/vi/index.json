@@ -1,0 +1,232 @@
+[
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/6-dockercompose/1-install/",
+	"title": "Cài đặt Docker Compose",
+	"tags": [],
+	"description": "",
+	"content": "Các bước cài đặt Docker Compose Vì đã tải docker rồi nên giờ ta không cần tải lại nữa. Tự động bật docker. sudo chkconfig docker on Cài bản docker compose mới nhất sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose Thêm vào đường dẫn export PATH=$PATH:/usr/local/bin Cấp quyền cho docker compose sudo chmod +x /usr/local/bin/docker-compose kiểm tra cài đặt docker-compose --version "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Bối cảnh Công ty có một ứng dụng web gồm 2 container:\nWeb container: Chạy ứng dụng web chính. Database container: Chứa cơ sở dữ liệu MySQL. Công ty quyết định sử dụng Docker Swarm để triển khai các container này trên 3 máy chủ EC2 nhỏ trên AWS. Swarm giúp họ:\nTự động cân bằng tải giữa các máy chủ để tránh tình trạng quá tải cho một node cụ thể. Tự động khởi động lại các container khi có lỗi. Docker Swarm là giải pháp lý tưởng cho các công ty nhỏ hoặc các dự án không yêu cầu điều phối phức tạp, nơi mà Kubernetes hoặc ECS có thể trở nên thừa thãi và khó quản lý. Docker Swarm cung cấp đủ tính năng để tự động hóa và quản lý container một cách hiệu quả, đồng thời dễ sử dụng và tích hợp tốt với Docker.\nDocker là gì? Docker là một nền tảng mã nguồn mở cho phép bạn tự động hóa việc triển khai, quản lý, và chạy ứng dụng bên trong các containers. Docker giúp đơn giản hóa quá trình phát triển và triển khai bằng cách đảm bảo rằng ứng dụng của bạn sẽ chạy nhất quán trong mọi môi trường.\nDocker Compose là gì? Docker Compose là một công cụ giúp định nghĩa và chạy các ứng dụng Docker multi-container. Thay vì phải chạy các lệnh Docker riêng lẻ cho từng container, Docker Compose cho phép bạn quản lý tất cả các container liên quan trong một ứng dụng bằng cách sử dụng một tập tin cấu hình duy nhất.\nTại sao nên sử dụng Docker Swarm? Docker Swarm là một công cụ điều phối container (container orchestration) được tích hợp sẵn trong Docker. Nó cho phép bạn triển khai và quản lý các container trên một hoặc nhiều máy chủ (nodes) dưới dạng một cụm (cluster). Docker Swarm giúp bạn dễ dàng điều khiển cách các container được triển khai, cân bằng tải, và quản lý tài nguyên trong cụm.\nNó một lựa chọn phù hợp cho các dự án vừa và nhỏ, nơi tính đơn giản và dễ dàng triển khai là ưu tiên hàng đầu.\nTuy Docker Swarm không được tích hợp với các dịch vụ để quản lý ở trên AWS như ECS hay EKS nhưng ta vẫn có thể thiết lập và quản lý một cụm Docker Swarm trên một vài tài nguyên của AWS như EC2 instances.\nĐiều này đặc biệt giúp những người đã quen dùng Docker hơn ECS quản lý các container dễ dàng hơn, ngay cả khi nó đang dùng trên AWS.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-preparation/1-github/",
+	"title": "GitHub Repository",
+	"tags": [],
+	"description": "",
+	"content": "Chuẩn bị một mã nguồn có sẵn trên GitHub Phần này mình đã chuẩn bị sẵn một mã nguồn đã được đẩy lên GitHub như sau:\nhttps://github.com/AWS-First-Cloud-Journey/AWS-FCJ-Management.git "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/7-troubleshooting/1-npm/",
+	"title": "Lỗi npm start",
+	"tags": [],
+	"description": "",
+	"content": "Lỗi khi kiểm tra lệnh npm start Khi ta chạy lệnh sau npm start Lỗi sẽ hiện ra như sau Nguyên nhân là vì nó đang bị lỗi nodemon khi ta install về vì thế nên ta sẽ phải tải lại và cấp quyền lại cho nó //cap quyen chmod +x /home/ec2-user/AWS-FCJ-Management/node_modules/.bin/nodemon //xoa di tai lai npm uninstall nodemon npm install nodemon --save-dev Sau khi thành công thì ta chạy lại lệnh npm start npm start "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/5-dockerswarm/1-create/",
+	"title": "Tạo các nodes worker",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo các nodes worker Ở phần này mình sẽ phải tạo thêm 2 instance EC2 để làm 2 nodes còn lại, còn instance đang sài sẽ làm node manage. Vì thế nên bước này sẽ gần giống như bước tạo EC2 ở phần chuẩn bị.\nĐầu tiên mình sẽ tạo node 1. Nhập tên: DockerSwarm-Instance-Node1. Chọn Type: t2.micro (free tier). Key pair: Chọn key pair giống phần tạo EC2 instace. Chọn VPC đã chuẩn bị. Subnet: Chọn Subnet public 2. Chọn SG đã tạo cho EC2. Tạo node 2. Nhập tên: DockerSwarm-Instance-Node2. Chọn Type: t2.micro (free tier). Key pair: Chọn key pair giống phần tạo EC2 instace. Chọn VPC đã chuẩn bị. Subnet: Chọn Subnet public 3. Chọn SG đã tạo cho EC2. Kiểm tra lại và chọn Launch instance để tạo. Kiểm tra trạng thái của 2 nodes vừa tạo. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-rds/1-subnetgroup/",
+	"title": "Tạo DB Subnet group",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo DB Subnet group Vào RDS chọn subnet group và ấn Create Nhập tên: DockerSwarm-WS-Subnet-Group Mô tả: Subnet Group for FCJ Management Chọn VPC đã tạo Chọn các subnet private và chọn Create để tạo. Tạo thành công "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/4-ecr/1-ecr/",
+	"title": "Tạo ECR reponsitory",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo ECR reponsitory Truy cập vào AWS console tìm ECR và chọn Create repository Nhập tên: aws-fcj-management Chọn Scan on push và tạo mới. Tạo thành công repository. Chọn vào nó và View push commands để xem các lệnh push. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/",
+	"title": "Tích hợp Docker Swarm với AWS Services",
+	"tags": [],
+	"description": "",
+	"content": "Tích hợp Docker Swarm với AWS Services Tổng quan Trong Workshop này, mình sẽ trình bày quy trình triển khai và làm việc với Docker, một công cụ mạnh mẽ để quản lý và vận hành Container. Để điều phối và quản lý các container hiệu quả, mình đã sử dụng Docker Swarm – một giải pháp tích hợp sẵn của Docker. Bên cạnh đó, mình cũng tận dụng một số dịch vụ trên AWS để tối ưu hóa quá trình triển khai và quản lý hệ thống trên nền tảng Cloud, giúp nâng cao tính linh hoạt và khả năng mở rộng của ứng dụng.\nKiến trúc Quy trình triển khai: Clone GitHub Repository → EC2 Instance → Connect RDS → Dockerfile → Push image → ECR → Pull image → Docker Compose → Deploy Service → Docker Swarm Cluster.\nNội dung chính Giới thiệu Chuẩn bị RDS (Cơ sở dữ liệu) Elastic Container Registry (ECR) Docker Swarm Docker Compose Xử lý sự cố Dọn dẹp tài nguyên "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/4-ecr/2-push/",
+	"title": "Đẩy image lên ECR",
+	"tags": [],
+	"description": "",
+	"content": "Các bước đẩy image lên ECR Giờ chúng ta sẽ build image nhưng chúng ta cần phải đăng nhập access key đã tạo trước để nó có thể dùng đăng nhập vào AWS. Access key là một phần rất bảo mật vì thế nên bạn không được lộ bất kì thông tin gì về nó. Nếu chưa rõ cách tạo bạn có thể xem thêm ở tra amazon hoặc bất cứ nơi đâu về cách “Tạo một access key như thế nào”.\nKhi lưu file về rồi ta sẽ truy cập nó bằng cách vào lại VScode nãy ta đã ssh trong EC2 ở phần chuẩn bị. Sau đó dùng lệnh để kết nối và nhập những thông tin về access key. aws configure Để push image lên ECR bằng các lệnh đã show ở phần ECR repository (ta sẽ copy hết vào) Login vào ECR aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin \u0026lt;AWS_Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com Build một image docker build -t aws-fcj-management . Gắn tag cho nó và push lên ECR docker tag aws-fcj-management:latest \u0026lt;AWS_Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com/aws-fcj-management:latest docker push \u0026lt;AWS_Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com/aws-fcj-management:latest Vào lại ECR để kiểm tra image đã tồn tại chưa. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/5-dockerswarm/2-connect/",
+	"title": "Kết nối các nodes",
+	"tags": [],
+	"description": "",
+	"content": "Các bước kết nối các nodes Mình sẽ dùng VSCode để kết nối chúng tương tự như kết nối VSCode trong phần Chuẩn bị đã thực hiện để kết nối 2 node worker này, sau đó ping thử cả 2 ra internet. ping -c5 amazon.com Tiếp theo mình sẽ tải docker cho cả 2 nodes để có thể dùng được các lệnh của docker. sudo amazon-linux-extras install docker sudo service docker start sudo usermod -a -G docker ec2-user Sau đó mình đăng nhập vào ECR và kéo image đã build từ trước xuống để có thể chạy nó. Có thể dùng IAM để có thể tự động đăng nhập cho các máy ảo mà không cần dùng đến lệnh “aws configure”. Điều này sẽ giúp mình có thể làm nhanh hơn, hiệu quả hơn, bảo mật hơn. (Tham khảo ở phần Troubleshooting)\naws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin \u0026lt;Account_ID\u0026gt;.dkr.ecr.ap-southeast-1.amazonaws.com docker pull \u0026lt;URI_image\u0026gt; Tạo docker cluster cho node manage Dùng lệnh token để paste và 2 nodes còn lại docker swarm init --advertise-addr \u0026lt;MANAGER-IP-PUBLIC-EC2\u0026gt; docker swarm join --token \u0026lt;Token_Manage\u0026gt; Để kiểm tra kết nối mình sẽ dùng lệnh sau ở bên node manage. docker node ls "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-preparation/",
+	"title": "Sự chuẩn bị",
+	"tags": [],
+	"description": "",
+	"content": "Sau đây sẽ là các chuẩn bị đơn giản để ta thuận tiện cho việc làm workshop hơn bằng cách chuẩn bị các công cụ cần thiết như: VPC, Security group, EC2, GitHub.\nNội Dung GitHub Repository Tạo VPC Tạo Security Group Tạo EC2 Kết nối với VS Code "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-rds/2-dbinstance/",
+	"title": "Tạo DB instance",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo DB instance (RDS) Truy cập và phần database trong RDS và ấn Create database Chọn MySQL để lưu trữ dữ liệu. Chọn template Free tier vì đây chỉ là môi trường thử nghiệm. Bởi vì ta chỉ sài Free tier nên bị hạn chế khá nhiều thứ như: Giới hạn về kích thước cơ sở dữ liệu, hạn chế về loại instance, tính năng giới hạn, giới hạn về số lượng cơ sở dữ liệu, chỉ có một số loại database được hỗ trợ, không có hỗ trợ kỹ thuật, hạn chế về hiệu suất và thời gian sử dụng có giới hạn.\nNhập định danh: fcj-management-db-instance Username: admin Password: 123Vodanhphai Chọn cấu hình mặc định Chọn VPC và Subnet group đã tạo từ trước Chọn Security group đã tạo cho DB Kiểm tra và ấn tạo Quá trình tạo sẽ mất khoảng 10-15 phút để đợi RDS được tạo hoàn tất "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/6-dockercompose/2-create/",
+	"title": "Tạo file docker compose",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo file docker-compose.yaml Bây giờ ta cần phải cấu hình file docker-compose.yaml để nó có thể tự động tạo service một cách dễ dàng hơn. Đầu tiên ta sẽ xóa nội dung bên trong nó trước. truncate -s 0 docker-compose.yaml Sau đó ta dùng lệnh để vào file và cấu hình. vi docker-compose.yaml Bên trong file ta phải cấu hình như sau: version: \u0026#34;3.9\u0026#34; services: app: image: ${IMAGE} # URI image tren ECR environment: # Bien moi truong cua database - DB_HOST=${DB_HOST} - DB_NAME=${DB_NAME} - DB_USER=${DB_USER} - DB_PASS=${DB_PASS} deploy: replicas: 3 update_config: parallelism: 1 order: stop-first restart_policy: condition: on-failure ports: - target: 5000 published: 5000 protocol: tcp mode: host #ingress networks: - app-network networks: app-network: driver: overlay Khi chọn chế độ: “Host” thì ta chỉ có thể chạy được một container tương ứng với một replicas ở trên một node khi chạy trên một port nào đó ví dụ như: port 5000, nếu như muốn chạy được nhiều hơn thì ta phải cấu hình bằng tay cho nó. “Ingress” thì ta có thể chạy được nhiều replicas hơn trên một node, tuy nhiên vì đang sử dụng RDS free tier nó hạn chế chạy được trên nhiều nodes và replicas. Vì thế nên bài này mình chọn chế độ trên.\nDùng lệnh để kiểm tra lại file. cat docker-compose.yaml File .env sẽ không truyền được vào docker swarm nên ta phải truyền bằng tay. export IMAGE=\u0026lt;Image_URI\u0026gt; //Change image on ECR your export DB_HOST=\u0026lt;Endpoint_RDS\u0026gt; //Change endpoin on RDS your export DB_NAME=\u0026lt;db_name\u0026gt; //Change name database your export DB_USER=\u0026lt;User_name\u0026gt; //Change name user on RDS your export DB_PASS=\u0026lt;password\u0026gt; //Change passwork on RDS your "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/7-troubleshooting/2-iam/",
+	"title": "Tạo quyền IAM",
+	"tags": [],
+	"description": "",
+	"content": " Khi ta muốn sử dụng đăng nhập vào ECR thì ta cần phải sử dụng lệnh “aws configure” và nhập access key vào nó mới có thể sài được, vì thế nên ta có thể tạo một quyền để cho các EC2 instance được cấp quyền sẽ tự động đăng nhập giúp nhanh hơn và bảo mật hơn.\nCác bước tạo quyền IAM Tìm kiêm IAM trong AWS console, chọn vào Roles và chọn tạo. Chọn service là EC2 Thêm quyền truy cập vào ECR Nhập tên: ECR-Access-Role\nMô tả: Allow EC2 instance to all ECR\nKiểm tra kĩ lại và ấn tạo. Tạo thành công. Tiếp theo ta sẽ vào EC2 và gán role vào cho nó. Tìm đúng tên quyền đã tạo và chọn update Tương tự như vậy mình sẽ cần gán hết cho các instance đang chạy các nodes.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-preparation/2-vpc/",
+	"title": "Tạo VPC",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo VPC Vào AWS console tìm và tạo VPC. Chọn VPC and more Nhập tên: Docker-WS Ipv4: 10.0.0.0/16 Mình sẽ cấu hình như sau: Sau đó kiểm tra lại và ấn tạo Tạo thành công Cấu hình Subnet Public ipv4 các subnet public ta vừa tạo để có thể ping ra được internet Chọn Auto-assign IP và lưu lại Tương tự mình làm với 2 Subnet public còn lại\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/6-dockercompose/3-run/",
+	"title": "Chạy file docker compose",
+	"tags": [],
+	"description": "",
+	"content": "Các bước chạy file docker compose Ở phần này ta dùng docker compose để cấu hình và chạy các dịch vụ Docker Swarm, vì thế ta cần chú ý chi tiết về các cấu hình phải chính xác như: Security group phải chính xác, IAM đầy đủ quyền, RDS có kết nói được không. Kiểm tra kỹ các cấu hình từ trước và xử lý lỗi để chạy được thành công.\nChạy file docker-compose. docker stack deploy -c docker-compose.yaml \u0026lt;STACK_NAME\u0026gt; Kiểm tra service đã chạy. docker service ls Kiểm tra logs xem có phát hiện lỗi không. Kiểm tra các container được chia trên các nodes. Kiểm tra các container ở trên từng node xem đã hoạt động chưa. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/4-ecr/3-test/",
+	"title": "Chạy thử image trên ECR",
+	"tags": [],
+	"description": "",
+	"content": "Các bước chạy thử image trên ECR Khi image đã được đẩy lên ECR thì ta sẽ chạy thử xem image đó hoạt động có tốt hay không. docker run --env-file .env -p 5000:5000 \u0026lt;Image_URI_ECR\u0026gt; Sử dụng public IP trong EC2 và gắn với port 5000 để kiểm tra trên web. http://\u0026lt;public_ip_EC2\u0026gt;:5000 "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-rds/3-connect/",
+	"title": "Kết nối Cơ sở dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": "Các bước kết nối Cơ sở dữ liệu Dùng bằng tài khoản root và bắt đầu tải sql sudo su yum install mariadb Sao chép endpoint của RDS dùng để kết nối. Kiểm tra Sql và kết nối tới cơ sở dữ liệu (RDS đã tạo), sửa các thông tin (endpoint của RDS, tên đã tạo vd: admin, nhập mật khẩu đã tạo trong RDS) mysql --version mysql -h mysql–instance1.123456789012.us-east-1.rds.amazonaws.com -P 3306 -u mymasteruser -p Tạo một database và lưu trữ nó ở trên RDS Create database usermgt; USE usermgt; CREATE TABLE `usermgt`.`user` ( `id` INT NOT NULL auto_increment, `first_name` VARCHAR(45) NOT NULL, `last_name` VARCHAR(45) NOT NULL, `email` VARCHAR(45) NOT NULL, `phone` VARCHAR(45) NOT NULL, `comments` TEXT NOT NULL, `status` VARCHAR(10) NOT NULL DEFAULT \u0026#39;active\u0026#39;, PRIMARY KEY (`id`) ) engine = innodb; INSERT INTO `user` (`id`, `first_name`, `last_name`, `email`, `phone`, `comments`, `status`) VALUES (NULL, \u0026#39;Amanda\u0026#39;, \u0026#39;Nunes\u0026#39;, \u0026#39;anunes@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Alexander\u0026#39;, \u0026#39;Volkanovski\u0026#39;, \u0026#39;avolkanovski@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Khabib\u0026#39;, \u0026#39;Nurmagomedov\u0026#39;, \u0026#39;knurmagomedov@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Kamaru\u0026#39;, \u0026#39;Usman\u0026#39;, \u0026#39;kusman@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;), (NULL, \u0026#39;Israel\u0026#39;, \u0026#39;Adesanya\u0026#39;, \u0026#39;iadesanya@ufc.com\u0026#39;, \u0026#39;012345 678910\u0026#39;, \u0026#39;I love AWS FCJ\u0026#39;, \u0026#39;active\u0026#39;); Kiểm tra database đã tạo bằng lệnh sau. SELECT * FROM user; "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-rds/",
+	"title": "RDS (Cơ sở dữ liệu)",
+	"tags": [],
+	"description": "",
+	"content": "Ta sẽ tạo cơ sở dữ liệu ở trên RDS để lưu trữ các dữ liệu cần thiết và có thể dễ dàng sử dụng chúng.\nNội Dung Tạo DB Subnet group Tạo DB instance Kết nối Cơ sở dữ liệu Cài đặt Git Cài đặt Node.js và Npm Triển khai thử trên IP Public EC2 "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-preparation/3-securitygroup/",
+	"title": "Tạo Security Group",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo Security Group EC2 Vào AWS console tìm kiếm VPC và chọn vào Security Group Nhập tên: DockerSwarm-WS-SG Mô tả: Allow SSH for EC2 Chọn VPC đã tạo Thêm các inbound rules như sau: Sau đó ấn vào tạo mới Các bước tạo Security Group RDS Nhập tên: DockerSwarm-WS-DB-SG Mô tả: Security Group for DB instance Chọn VPC đã tạo Inbound rule chọn lại Security group mình đã cấu hình từ trước. Sau đó ấn vào tạo mới Kiểm tra lại 2 Security group mình vừa tạo đã hoành thành "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-rds/4-git/",
+	"title": "Cài đặt Git",
+	"tags": [],
+	"description": "",
+	"content": "Các bước cài đặt Git Cài đặt Git trên Amazon linux 2 bằng lệnh sau sudo yum install git Git clone một cái GitHub mình đã chuẩn bị sẵn ở phần đầu tiên. git init git clone https://github.com/AWS-First-Cloud-Journey/AWS-FCJ-Management.git Vào bên trong thư mục đã git clone về. ls cd AWS-FCJ-Management/ "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/4-ecr/",
+	"title": "Elastic Container Registry (ECR)",
+	"tags": [],
+	"description": "",
+	"content": "Amazon Elastic Container Registry (ECR) là một dịch vụ quản lý các container image do AWS cung cấp. ECR cho phép bạn lưu trữ, quản lý và triển khai các container image một cách an toàn, hiệu quả, và có khả năng mở rộng.\nNội Dung Tạo ECR reponsitory Đẩy image lên ECR Chạy thử image trên ECR "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/6-dockercompose/4-check/",
+	"title": "Kiểm tra nodes",
+	"tags": [],
+	"description": "",
+	"content": "Các bước kiểm tra container trên từng nodes Chạy và kiểm tra web trên port 5000 của cả 3 nodes xem hoạt động có được tốt không Đầu tiên là node manage http://\u0026lt;public_ip_EC2\u0026gt;:5000 Tiếp theo là node worker 1 http://\u0026lt;public_ip_EC2\u0026gt;:5000 Cuối cùng là node worker 2 http://\u0026lt;public_ip_EC2\u0026gt;:5000 "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-preparation/4-ec2/",
+	"title": "Tạo EC2",
+	"tags": [],
+	"description": "",
+	"content": "Các bước tạo EC2 Vào EC2 trong AWS console và ấn Launch instance để tạo Nhập tên: DockerSwarm-Instance Sử dụng linux 2 Sài t2.micro Key pair chọn key mình đã tạo Nếu chưa có key pair thì mình phải tạo mới và lưu lại dùng để đăng nhập khi Ssh.\nChọn VPC đã tạo. Chọn Subnet public 1 để có thể ping ra internet Chọn Security group đã tạo cho EC2 Kiểm tra lại và chọn Launch instance để tạo Kiểm tra trạng thái Kết nối bằng cách sao chép lệnh để Ssh. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-rds/5-npm/",
+	"title": "Cài đặt Node.js và Npm",
+	"tags": [],
+	"description": "",
+	"content": "Các bước cài đặt Node.js và Npm Lưu ý: Trước khi làm phần này, mình cần phải truy cập vào trong thư mục mình đã git clone về trước. Sau đó mình sẽ cần phải cài đặt theo tùy loại hệ điều hành mà mình đã cấu hình cho máy ảo. (Hiện đang sài Amazon linux 2)\nCài đặt node version manager (nvm). curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash Kích hoạt nvm đã cài. . ~/.nvm/nvm.sh Dùng nvm này để cài đặt node.js. nvm install 16 Kiểm tra bằng lệnh sau: node -v npm -v Cài đặt npm npm install Cài đặt dotenv npm install dotenv Vì nó có một vài lỗi nên cần phải chạy lệnh để chỉnh sửa.\nnpm audit fix "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/5-dockerswarm/",
+	"title": "Docker Swarm",
+	"tags": [],
+	"description": "",
+	"content": "Docker Swarm là một công cụ để quản lý các container khá tốt, vì thế nên ta sẽ sử dụng nó vào bài và làm theo các bước sau:\nNội Dung Tạo các nodes worker Kết nối các nodes "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-preparation/5-vscode/",
+	"title": "Kết nối với VSCode",
+	"tags": [],
+	"description": "",
+	"content": "Các bước kết nối với VSCode Mở VSCode và dán link mà ta đã sao chép từ phần trước của EC2 vào để connect. Chỉnh sửa lại cấu hình và gắn link dẫn tới key pair cho phù hợp. Phần này khá quan trọng khi mình phải trỏ đúng tới nơi mà mình đã tải file về và các cấu hình EC2 phải chính xác mới kết nối được.\nKết nối thành công. "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/6-dockercompose/",
+	"title": "Docker Compose",
+	"tags": [],
+	"description": "",
+	"content": "Docker compose ở phần này sử dụng để có thể tạo tự động service và replicas để phân chia cho các nodes.\nNội Dung Cài đặt Docker Compose Tạo file docker-compose.yaml Chạy file docker compose Kiểm tra Nodes "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-rds/6-deploy/",
+	"title": "Triển khai thử trên IP Public EC2",
+	"tags": [],
+	"description": "",
+	"content": "Các bước triển khai trên IP Public EC2 Cài đặt Docker Engine. sudo amazon-linux-extras install docker Khởi động Docker. sudo service docker start sudo usermod -a -G docker ec2-user Cấu hình file .env. touch .env vi .env Cấu hình bên trong .env (ta sẽ sửa các giá trị trong ngoặc sao cho phù hợp với các cấu hình mà ta đã tạo từ trước đó). DB_HOST= \u0026#34;Endpoint RDS\u0026#34; DB_NAME= \u0026#34;db name\u0026#34; DB_USER= \u0026#34;db user\u0026#34; DB_PASS= \u0026#34;db password\u0026#34; Dùng lệnh để kiểm tra lại. cat .env Dùng lệnh để kiểm tra code. npm start Dùng lệnh để kiểm tra các thư viện mới tải về có chạy ổn không trước khi build image. Phần này rất dễ lỗi nên ta cần phải xem lại trong phần Troubleshooting hoặc có thể tham khảo trên mạng.\nNếu đã kiểm tra thành công thì mình sẽ thử build một image bằng thủ công. docker build -t awsfcj . docker images Dùng lệnh chạy image đó. docker run --env-file .env -p 5000:5000 awsfcj Sử dụng public IP trong EC2 và gắn với port 5000 để kiểm tra trên web http://\u0026lt;public_ip_EC2\u0026gt;:5000 "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/7-troubleshooting/",
+	"title": "Xử lý lỗi",
+	"tags": [],
+	"description": "",
+	"content": "Trong quá trình triển khai sẽ có rất nhiều lỗi nếu như bạn chư hiểu cấu trúc và chưa hiểu được cấu hình của nó. Và sau đây là những lỗi thường gặp trong bài.\nNội Dung Npm IAM "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/8-clearresources/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": "Xóa ECR Xóa image đã tạo trước Xóa repository Xóa RDS Xóa DB instance trước Click chọn như hình để xóa hoàn toàn (quá trình này khoảng 10 - 15 phút) Khi xóa hoàn tất thì ta mới có thể xóa tới subnet group Xóa EC2 instance Xóa cả 3 instance đã tạo Xóa VPC Xóa VPC đã tạo Kiểm tra lại các tài nguyên xem đã bị xóa hết chưa và hoàn tất xóa nó.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
