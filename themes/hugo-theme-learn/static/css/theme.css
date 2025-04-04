@@ -1139,6 +1139,12 @@ pre .copy-to-clipboard:hover {
     padding-left: 1rem;
 }
 
+#sidebar #shortcuts h4 {
+    color: white ;
+    margin-top:1rem;
+    padding-left: 1rem;
+}
+
 #searchResults {
     text-align: left;
 }

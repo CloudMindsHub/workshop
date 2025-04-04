@@ -27,9 +27,15 @@ languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-linkedin'></i> Cloudminds"
-identifier = "AWS Study Group FB"
+identifier = "Cloudminds"
 url = "https://www.linkedin.com/company/105900568/admin/dashboard/"
 weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-facebook'></i> FCJ AWS"
+identifier = "FCJ_AWS"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
+weight = 30
 
 [Languages.vi]
 title = "Thiết lập AWS Account"
@@ -42,3 +48,8 @@ identifier = "AWS Study Group FB"
 url = "https://www.linkedin.com/company/105900568/admin/dashboard/"
 weight = 20
 
+[[Languages.vi.menu.shortcuts]]
+name = "<i class='fab fa-facebook'></i> FCJ AWS"
+identifier = "FCJ_AWS"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
+weight = 30
