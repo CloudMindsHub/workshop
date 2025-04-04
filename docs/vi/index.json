@@ -1,0 +1,85 @@
+[
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-finetune/1-dataset/",
+	"title": "Chuẩn bị dataset",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/",
+	"title": "Customizing Amazon Nova models",
+	"tags": [],
+	"description": "",
+	"content": "Customizing Amazon Nova models Tổng quan Trong bối cảnh AI và Machine Learning ngày càng phát triển, việc tinh chỉnh fine-tuning các mô hình ngôn ngữ lớn (LLM) trở nên quan trọng để tối ưu hóa hiệu suất theo nhu cầu cụ thể. Dự án của chúng tôi tập trung vào việc tùy chỉnh các mô hình Amazon Nova thông qua kỹ thuật fine-tuning, nhằm nâng cao độ chính xác và tính phù hợp của mô hình với bài toán thực tế.\nAmazon Nova là một dòng mô hình AI tiên tiến do AWS phát triển, cung cấp khả năng xử lý ngôn ngữ tự nhiên mạnh mẽ, có thể được tinh chỉnh để phù hợp với các ứng dụng doanh nghiệp, chatbot, phân tích văn bản, và nhiều bài toán AI khác. Bằng cách sử dụng fine-tuning, chúng tôi có thể điều chỉnh Nova theo dữ liệu cụ thể của dự án, cải thiện độ chính xác và khả năng phản hồi của mô hình đối với các truy vấn đặc thù.\nTrong phần tiếp theo, chúng tôi sẽ trình bày chi tiết về quy trình fine-tuning, công nghệ được sử dụng, và các thách thức kỹ thuật gặp phải trong quá trình triển khai dự án.\nKiến trúc Quy trình triển khai: Chuẩn bị dataset -\u0026gt; \u0026hellip;\nNội dung chính Giới thiệu Fine-tuning VQA trên Nova "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Khái Niệm Trong phần này, chúng tôi giới thiệu các khái niệm và kỹ thuật chính được sử dụng để tùy chỉnh mô hình Amazon Nova, bao gồm Fine-tuning, Distillation, và Continued Pre-training. Mỗi phương pháp đều có ưu điểm và phù hợp với các yêu cầu cụ thể khác nhau.\nFine-tuning Khái niệm: Fine-tuning là quá trình huấn luyện thêm một mô hình ngôn ngữ đã được huấn luyện trước đó (pre-trained) trên một tập dữ liệu nhỏ hơn, chuyên biệt cho một tác vụ cụ thể. Điều này giúp mô hình hiểu rõ hơn về ngữ cảnh cụ thể của lĩnh vực ứng dụng.\nHình minh họa: Ưu điểm:\nCải thiện hiệu suất trên các tác vụ chuyên biệt Không cần nhiều dữ liệu như huấn luyện từ đầu Nhanh chóng và tiết kiệm chi phí Nhược điểm:\nDễ bị overfitting nếu dữ liệu quá ít Có thể làm mất đi kiến thức tổng quát của mô hình (catastrophic forgetting) Use case thực tế:\nChatbot chăm sóc khách hàng được fine-tune trên dữ liệu hội thoại nội bộ của công ty để trả lời chính xác hơn. Hệ thống phân loại email spam được tinh chỉnh với dữ liệu từ tổ chức cụ thể để tăng độ chính xác. Ứng dụng nhận dạng thực thể trong văn bản y tế (Medical NER) được fine-tune từ mô hình gốc để xử lý hồ sơ bệnh án. Distillation Khái niệm: Distillation (chưng cất mô hình) là kỹ thuật chuyển giao tri thức từ một mô hình lớn, phức tạp (teacher) sang một mô hình nhỏ, nhẹ hơn (student), giúp giảm kích thước và tăng tốc độ suy luận.\nHình minh họa: Ưu điểm:\nGiảm kích thước mô hình và độ trễ Dễ triển khai trên thiết bị có tài nguyên hạn chế (mobile, edge) Nhược điểm:\nCó thể giảm hiệu suất so với mô hình gốc Cần thêm một bước huấn luyện phụ Use case thực tế:\nTạo phiên bản nhẹ của mô hình chatbot để triển khai trên thiết bị IoT trong nhà thông minh. Rút gọn mô hình phân tích cảm xúc để tích hợp vào hệ thống hỗ trợ khách hàng trên ứng dụng di động. Triển khai phiên bản student của mô hình kiểm tra đạo văn cho các trường đại học có tài nguyên hạn chế. Continued Pre-training Khái niệm: Continued pre-training là quá trình huấn luyện tiếp tục một mô hình ngôn ngữ đã được huấn luyện trước đó trên một tập dữ liệu lớn không có nhãn, chuyên biệt theo lĩnh vực trước khi thực hiện fine-tuning.\nHình minh họa: Ưu điểm:\nGiúp mô hình hấp thụ thêm kiến thức chuyên ngành Cải thiện khả năng tổng quát hoá khi fine-tune Nhược điểm:\nTốn nhiều tài nguyên tính toán Yêu cầu tập dữ liệu lớn và phù hợp với lĩnh vực Use case thực tế:\nTiền huấn luyện mô hình với hàng triệu bài báo khoa học trước khi fine-tune cho hệ thống trích xuất thông tin học thuật. Sử dụng dữ liệu từ các diễn đàn công nghệ để tiếp tục huấn luyện mô hình, sau đó tinh chỉnh cho trợ lý kỹ thuật. Huấn luyện tiếp mô hình trên tập tin tài chính doanh nghiệp để cải thiện hệ thống phân tích báo cáo tài chính. So sánh các kỹ thuật tùy chỉnh mô hình Tiêu chí Fine-tuning Distillation Continued Pre-training Dữ liệu đầu vào Có nhãn Có nhãn và mô hình teacher Không nhãn Mục tiêu chính Tùy chỉnh mô hình theo tác vụ cụ thể Nén mô hình, tăng tốc suy luận Mở rộng kiến thức chuyên ngành Yêu cầu tài nguyên Trung bình Thấp Cao Khả năng triển khai Dễ triển khai với mô hình có sẵn Phù hợp thiết bị giới hạn tài nguyên Yêu cầu pipeline huấn luyện phức tạp hơn Độ phức tạp Vừa phải Thấp đến trung bình Cao Nguy cơ overfitting Cao nếu ít dữ liệu Thấp Thấp Ưu điểm nổi bật Cá nhân hóa mạnh mẽ cho tác vụ cụ thể Nhẹ, nhanh, dễ triển khai Học sâu hơn theo lĩnh vực, tăng khả năng generalization Nhược điểm Có thể làm mất kiến thức tổng quát Hiệu suất kém hơn mô hình gốc Tốn tài nguyên, cần dữ liệu lớn Ví dụ ứng dụng Chatbot doanh nghiệp, phân loại văn bản Ứng dụng mobile, IoT, hệ thống nhúng Trích xuất thông tin chuyên ngành, phân tích tài chính Tổng kết Trong phần giới thiệu này, chúng tôi đã làm rõ ba phương pháp chính để tùy chỉnh mô hình Amazon Nova: Fine-tuning, Distillation và Continued Pre-training. Mỗi phương pháp có những điểm mạnh, điểm yếu và yêu cầu khác nhau, phục vụ những mục tiêu triển khai cụ thể:\nNếu cần mô hình phản hồi chính xác cho một tác vụ cụ thể, Fine-tuning là lựa chọn tối ưu. Nếu cần triển khai trên thiết bị tài nguyên thấp, Distillation là giải pháp phù hợp. Khi cần mô hình hiểu sâu hơn về ngữ cảnh ngành nghề, Continued Pre-training là hướng đi hiệu quả. Trong các phần tiếp theo, chúng tôi sẽ trình bày chi tiết cách áp dụng từng kỹ thuật vào quy trình huấn luyện mô hình Nova, cùng các công cụ và kiến trúc hỗ trợ.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-finetune/",
+	"title": "Fine-tuning VQA trên Nova",
+	"tags": [],
+	"description": "",
+	"content": "Nội Dung Chuẩn bị dataset S3 bucket Huấn luyện mô hình Kết quả thử nghiệm Xóa tài nguyên "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-finetune/2-s3/",
+	"title": "S3 bucket",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-finetune/3-train/",
+	"title": "Huấn luyện mô hình",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-finetune/4-result/",
+	"title": "Kết quả thử nghiệm",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/2-finetune/5-clean/",
+	"title": "Xóa tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/3-distillation/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/4-pre-training/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

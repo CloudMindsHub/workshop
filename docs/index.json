@@ -1,0 +1,85 @@
+[
+{
+	"uri": "https://cloudmindshub.github.io/workshop/",
+	"title": "Customizing Amazon Nova models",
+	"tags": [],
+	"description": "",
+	"content": "Customizing Amazon Nova models Overview As AI and Machine Learning continue to evolve, fine-tuning large language models (LLMs) has become essential for optimizing performance to meet specific needs. Our project focuses on customizing Amazon Nova models through fine-tuning techniques to enhance accuracy and relevance for real-world applications.\nAmazon Nova is an advanced AI model developed by AWS, providing powerful natural language processing capabilities. It can be fine-tuned to fit enterprise applications, chatbots, text analysis, and various other AI use cases. By leveraging fine-tuning, we can adjust Nova to our project\u0026rsquo;s specific dataset, improving accuracy and response quality for specialized queries.\nIn the following sections, we will detail the fine-tuning process, the technologies used, and the technical challenges encountered during the implementation of our project.\nArchitecture Deployment Process Dataset Preparation -\u0026gt; \u0026hellip;\nTable of Contents Introduction Fine-tuning VQA on Nova "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/1-introduce/",
+	"title": "Introduce",
+	"tags": [],
+	"description": "",
+	"content": "Concepts In this section, we introduce the key concepts and techniques used to customize the Amazon Nova model, including Fine-tuning, Distillation, and Continued Pre-training. Each method has its advantages and is suitable for different specific requirements.\nFine-tuning Concept:\nFine-tuning is the process of further training a pre-trained language model on a smaller, task-specific dataset. This helps the model better understand the specific context of the application domain.\nIllustration:\nAdvantages:\nImproves performance on specialized tasks Requires less data compared to training from scratch Faster and cost-effective Disadvantages:\nProne to overfitting with limited data Can lead to catastrophic forgetting of general knowledge Real-world use cases:\nA customer support chatbot fine-tuned on internal company conversations for more accurate responses. A spam email classifier refined with organization-specific data for higher accuracy. A Medical NER application fine-tuned from a base model to process medical records. Distillation Concept:\nDistillation is a technique that transfers knowledge from a large, complex model (teacher) to a smaller, lightweight model (student), reducing size and improving inference speed.\nIllustration:\nAdvantages:\nReduces model size and latency Easier deployment on resource-constrained devices (mobile, edge) Disadvantages:\nMay reduce performance compared to the original model Requires an additional training step Real-world use cases:\nCreating a lightweight version of a chatbot model for deployment on IoT devices in smart homes. Compressing a sentiment analysis model for integration into mobile customer support applications. Deploying a distilled plagiarism detection model for universities with limited computing resources. Continued Pre-training Concept:\nContinued pre-training involves further training a pre-trained language model on a large, unlabeled dataset specialized for a domain before fine-tuning.\nIllustration:\nAdvantages:\nEnhances domain-specific knowledge absorption Improves generalization ability when fine-tuning Disadvantages:\nRequires significant computational resources Needs a large and domain-relevant dataset Real-world use cases:\nPre-training a model on millions of scientific articles before fine-tuning it for an academic information extraction system. Using data from tech forums to continue training a model before refining it for a technical assistant. Further training a model on corporate financial data to improve financial report analysis systems. Comparison of Model Customization Techniques Criteria Fine-tuning Distillation Continued Pre-training Input Data Labeled Labeled + Teacher Model Unlabeled Main Goal Customize model for a specific task Compress model, speed up inference Expand domain-specific knowledge Resource Requirement Medium Low High Deployment Feasibility Easy with existing models Suitable for low-resource devices Requires complex training pipeline Complexity Moderate Low to Medium High Overfitting Risk High if data is limited Low Low Key Advantage Strong task-specific adaptation Lightweight, fast, easy deployment Deeper domain learning, better generalization Disadvantages Potential loss of general knowledge Lower performance than original model Resource-intensive, requires large data Example Applications Enterprise chatbot, text classification Mobile apps, IoT, embedded systems Specialized information extraction, financial analysis Summary In this introduction, we have clarified three key methods for customizing the Amazon Nova model: Fine-tuning, Distillation, and Continued Pre-training. Each method has different strengths, weaknesses, and requirements, serving specific deployment goals:\nIf the goal is precise task-specific responses, Fine-tuning is the optimal choice. If the priority is deployment on low-resource devices, Distillation is the best solution. When deeper domain understanding is needed, Continued Pre-training is an effective approach. In the following sections, we will detail how to apply each technique in the Nova model training process, along with supporting tools and architectures.\n"
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-finetune/1-dataset/",
+	"title": "Prepare dataset",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-finetune/",
+	"title": "Fine-tuning VQA on Nova",
+	"tags": [],
+	"description": "",
+	"content": "Content Prepare dataset S3 bucket Train model Test results Clean up resources "
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-finetune/2-s3/",
+	"title": "S3 bucket",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-finetune/3-train/",
+	"title": "Train model",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-finetune/4-result/",
+	"title": "Test results",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/2-finetune/5-clean/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/3-distillation/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/4-pre-training/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://cloudmindshub.github.io/workshop/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test results on AWS Account Setup</title>
+    <link>https://cloudmindshub.github.io/workshop/2-finetune/4-result/</link>
+    <description>Recent content in Test results on AWS Account Setup</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Jan 1970 07:33:45 +0700</lastBuildDate>
+    <atom:link href="https://cloudmindshub.github.io/workshop/2-finetune/4-result/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
