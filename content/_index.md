@@ -1,30 +1,27 @@
 +++
-title = "Integrating Docker Swarm with AWS Services"
-date = 2024
+title = "Customizing Amazon Nova models"
+date = 2025
 weight = 1
 chapter = false
 +++
 
-# Integrating Docker Swarm with AWS Services
+# Customizing Amazon Nova models
 
-#### Overview
-In this workshop, I will present the process of deploying and working with **Docker**, a powerful tool for managing and operating containers. To effectively orchestrate and manage containers, I used **Docker Swarm** – a built-in solution provided by Docker. Additionally, I leveraged several services on **AWS** to optimize the deployment and management of the system on the cloud platform, which helps enhance the flexibility and scalability of the application.
+### Overview
+As AI and Machine Learning continue to evolve, fine-tuning large language models (LLMs) has become essential for optimizing performance to meet specific needs. Our project focuses on customizing **Amazon Nova** models through **fine-tuning** techniques to enhance accuracy and relevance for real-world applications.
 
-#### Architecture
+**Amazon Nova** is an advanced AI model developed by AWS, providing powerful natural language processing capabilities. It can be fine-tuned to fit enterprise applications, chatbots, text analysis, and various other AI use cases. By leveraging fine-tuning, we can adjust **Nova** to our project's specific dataset, improving accuracy and response quality for specialized queries.
 
-![Architecture](/images/1-Introduce/Architecture-img.png?width=50pc)
+In the following sections, we will detail the **fine-tuning** process, the technologies used, and the technical challenges encountered during the implementation of our project.
 
-#### Implementation process:
-Clone GitHub Repository → EC2 Instance → Connect RDS → Dockerfile → Push image → ECR → Pull image → Docker Compose → Deploy Service → Docker Swarm Cluster.
+### Architecture
 
-#### Main content
+![Architecture](/images/)
 
-1. [Introduce](1-introduce/)
-2. [Preparation](2-preparation/)
-3. [RDS (Database)](3-rds/)
-4. [Elastic Container Registry (ECR)](4-ecr/)
-5. [Docker Swarm](5-dockerswarm/)
-6. [Docker Compose](6-dockercompose/)
-7. [Troubleshooting](7-troubleshooting/)
-8. [Clear Resources](8-clearresources/)
-<!-- need to remove parenthesis for path in Hugo 0.88.1 for Windows-->
+### Deployment Process
+Dataset Preparation -> ...
+
+### Table of Contents
+
+1. [Introduction](1-introduce/)
+2. [Fine-tuning VQA on Nova](2-finetune/)

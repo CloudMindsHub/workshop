@@ -1,29 +1,29 @@
 +++
-title = "Tích hợp Docker Swarm với AWS Services"
-date = 2024
+title = "Customizing Amazon Nova models"
+date = 2025
 weight = 1
 chapter = false
 +++
 
-# Tích hợp Docker Swarm với AWS Services
+# Customizing Amazon Nova models
 
-#### Tổng quan
-Trong Workshop này, mình sẽ trình bày quy trình triển khai và làm việc với **Docker**, một công cụ mạnh mẽ để quản lý và vận hành Container. Để điều phối và quản lý các container hiệu quả, mình đã sử dụng **Docker Swarm** – một giải pháp tích hợp sẵn của Docker. Bên cạnh đó, mình cũng tận dụng một số dịch vụ trên **AWS** để tối ưu hóa quá trình triển khai và quản lý hệ thống trên nền tảng Cloud, giúp nâng cao tính linh hoạt và khả năng mở rộng của ứng dụng.
+### Tổng quan
+Trong bối cảnh AI và Machine Learning ngày càng phát triển, việc tinh chỉnh **fine-tuning** các mô hình ngôn ngữ lớn (LLM) trở nên quan trọng để tối ưu hóa hiệu suất theo nhu cầu cụ thể. Dự án của chúng tôi tập trung vào việc tùy chỉnh các mô hình **Amazon Nova** thông qua kỹ thuật **fine-tuning**, nhằm nâng cao độ chính xác và tính phù hợp của mô hình với bài toán thực tế.
 
-#### Kiến trúc
+**Amazon Nova** là một dòng mô hình AI tiên tiến do AWS phát triển, cung cấp khả năng xử lý ngôn ngữ tự nhiên mạnh mẽ, có thể được tinh chỉnh để phù hợp với các ứng dụng doanh nghiệp, chatbot, phân tích văn bản, và nhiều bài toán AI khác. Bằng cách sử dụng fine-tuning, chúng tôi có thể điều chỉnh **Nova** theo dữ liệu cụ thể của dự án, cải thiện độ chính xác và khả năng phản hồi của mô hình đối với các truy vấn đặc thù.
 
-![Architecture](/images/1-Introduce/Architecture-img.png?width=50pc)
+Trong phần tiếp theo, chúng tôi sẽ trình bày chi tiết về quy trình **fine-tuning**, công nghệ được sử dụng, và các thách thức kỹ thuật gặp phải trong quá trình triển khai dự án.
 
-#### Quy trình triển khai:
-Clone GitHub Repository → EC2 Instance → Connect RDS → Dockerfile → Push image → ECR → Pull image → Docker Compose → Deploy Service → Docker Swarm Cluster.
 
-#### Nội dung chính
+
+### Kiến trúc
+
+![Architecture](/images/)
+
+### Quy trình triển khai:
+Chuẩn bị dataset -> ...
+
+### Nội dung chính
 
 1. [Giới thiệu](1-introduce/)
-2. [Chuẩn bị](2-preparation/)
-3. [RDS (Cơ sở dữ liệu)](3-rds/)
-4. [Elastic Container Registry (ECR)](4-ecr/)
-5. [Docker Swarm](5-dockerswarm/)
-6. [Docker Compose](6-dockercompose/)
-7. [Xử lý sự cố](7-troubleshooting/)
-8. [Dọn dẹp tài nguyên](8-clearResources/)
+2. [Fine-tuning VQA trên Nova](2-finetune/)
