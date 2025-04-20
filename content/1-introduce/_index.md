@@ -17,8 +17,8 @@ In this section, we introduce the key concepts and techniques used to customize 
 **Concept:**  
 Fine-tuning is the process of further training a pre-trained language model on a smaller, task-specific dataset. This helps the model better understand the specific context of the application domain.
 
-**Illustration:**  
-![Fine-tuning illustration](/images/fine-tune-example.png)
+<!-- **Illustration:**  
+![Fine-tuning illustration](/images/fine-tune-example.png) -->
 
 **Advantages:**
 - Improves performance on specialized tasks
@@ -39,8 +39,8 @@ Fine-tuning is the process of further training a pre-trained language model on a
 **Concept:**  
 Distillation is a technique that transfers knowledge from a large, complex model (teacher) to a smaller, lightweight model (student), reducing size and improving inference speed.
 
-**Illustration:**  
-![Distillation illustration](/images/distillation-example.png)
+<!-- **Illustration:**  
+![Distillation illustration](/images/distillation-example.png) -->
 
 **Advantages:**
 - Reduces model size and latency
@@ -60,8 +60,8 @@ Distillation is a technique that transfers knowledge from a large, complex model
 **Concept:**  
 Continued pre-training involves further training a pre-trained language model on a large, unlabeled dataset specialized for a domain before fine-tuning.
 
-**Illustration:**  
-![Continued Pre-training illustration](/images/continued-pretraining.png)
+<!-- **Illustration:**  
+![Continued Pre-training illustration](/images/continued-pretraining.png) -->
 
 **Advantages:**
 - Enhances domain-specific knowledge absorption

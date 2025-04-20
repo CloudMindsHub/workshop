@@ -25,11 +25,11 @@ title = "AWS Account Setup"
 weight = 1
 languageName = "English"
 
-[[Languages.en.menu.shortcuts]]
-name = "<i class='fab fa-linkedin'></i> Cloudminds"
-identifier = "Cloudminds"
-url = "https://www.linkedin.com/company/105900568/admin/dashboard/"
-weight = 20
+# [[Languages.en.menu.shortcuts]]
+# name = "<i class='fab fa-linkedin'></i> Cloudminds"
+# identifier = "Cloudminds"
+# url = "https://www.linkedin.com/company/105900568/admin/dashboard/"
+# weight = 20
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-facebook'></i> FCJ AWS"
@@ -42,11 +42,11 @@ title = "Thiết lập AWS Account"
 weight = 2
 languageName = "Tiếng Việt"
 
-[[Languages.vi.menu.shortcuts]]
-name = "<i class='fab fa-linkedin'></i> Cloudminds"
-identifier = "AWS Study Group FB"
-url = "https://www.linkedin.com/company/105900568/admin/dashboard/"
-weight = 20
+# [[Languages.vi.menu.shortcuts]]
+# name = "<i class='fab fa-linkedin'></i> Cloudminds"
+# identifier = "AWS Study Group FB"
+# url = "https://www.linkedin.com/company/105900568/admin/dashboard/"
+# weight = 20
 
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-facebook'></i> FCJ AWS"

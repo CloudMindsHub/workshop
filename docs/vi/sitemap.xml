@@ -2,156 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/2-finetune/1-dataset/</loc>
-    <lastmod>1970-01-01T07:33:45+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/</loc>
+    <lastmod>1970-01-01T08:33:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/2-finetune/1-dataset/"
+                href="http://localhost:1313/workshop/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/2-finetune/1-dataset/"
+                href="http://localhost:1313/workshop/vi/"
                 />
   </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/</loc>
-    <lastmod>1970-01-01T07:33:45+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/1-introduce/</loc>
+    <lastmod>1970-01-01T08:33:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/"
+                href="http://localhost:1313/workshop/1-introduce/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/"
+                href="http://localhost:1313/workshop/vi/1-introduce/"
                 />
   </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/1-introduce/</loc>
-    <lastmod>1970-01-01T07:33:45+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/2-dataset/</loc>
+    <lastmod>1970-01-01T08:33:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/1-introduce/"
+                href="http://localhost:1313/workshop/2-dataset/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/1-introduce/"
+                href="http://localhost:1313/workshop/vi/2-dataset/"
                 />
   </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/2-finetune/</loc>
-    <lastmod>1970-01-01T07:33:45+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/3-train/</loc>
+    <lastmod>1970-01-01T08:33:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/2-finetune/"
+                href="http://localhost:1313/workshop/3-train/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/2-finetune/"
+                href="http://localhost:1313/workshop/vi/3-train/"
                 />
   </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/2-finetune/2-s3/</loc>
-    <lastmod>1970-01-01T07:33:45+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/4-evaluation/</loc>
+    <lastmod>1970-01-01T08:33:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/2-finetune/2-s3/"
+                href="http://localhost:1313/workshop/4-evaluation/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/2-finetune/2-s3/"
+                href="http://localhost:1313/workshop/vi/4-evaluation/"
                 />
   </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/2-finetune/3-train/</loc>
-    <lastmod>1970-01-01T07:33:44+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/5-clean/</loc>
+    <lastmod>1970-01-01T08:33:45+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/2-finetune/3-train/"
+                href="http://localhost:1313/workshop/5-clean/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/2-finetune/3-train/"
+                href="http://localhost:1313/workshop/vi/5-clean/"
                 />
   </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/2-finetune/4-result/</loc>
-    <lastmod>1970-01-01T07:33:45+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/2-finetune/4-result/"
+                href="http://localhost:1313/workshop/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/2-finetune/4-result/"
+                href="http://localhost:1313/workshop/vi/categories/"
                 />
   </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/2-finetune/5-clean/</loc>
-    <lastmod>1970-01-01T07:33:45+07:00</lastmod>
+    <loc>http://localhost:1313/workshop/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/2-finetune/5-clean/"
+                href="http://localhost:1313/workshop/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/2-finetune/5-clean/"
-                />
-  </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/3-distillation/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/3-distillation/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/3-distillation/"
-                />
-  </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/4-pre-training/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/4-pre-training/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/4-pre-training/"
-                />
-  </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/categories/"
-                />
-  </url><url>
-    <loc>https://cloudmindshub.github.io/workshop/vi/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://cloudmindshub.github.io/workshop/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://cloudmindshub.github.io/workshop/vi/tags/"
+                href="http://localhost:1313/workshop/vi/tags/"
                 />
   </url>
 </urlset>

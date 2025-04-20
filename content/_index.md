@@ -23,5 +23,8 @@ Dataset Preparation -> ...
 
 ### Table of Contents
 
-1. [Introduction](1-introduce/)
-2. [Fine-tuning VQA on Nova](2-finetune/)
+1. [Giới thiệu](1-introduce/)
+2. [Chuẩn bị dữ liệu](2-dataset)
+3. [Huấn luyện tinh chỉnh mô hình](3-train)
+4. [Đánh giá mô hình](5-result)
+5. [Clean up resources](6-clean)

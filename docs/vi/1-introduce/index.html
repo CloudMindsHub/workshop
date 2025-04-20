@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="vi" class="js csstransforms3d">
-  <head>
+  <head><script src="/workshop/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=workshop/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.121.1">
+    <meta name="generator" content="Hugo 0.123.7">
     <meta name="description" content="">
 <meta name="author" content="npnam.techii@gmail.com">
 
-    <link rel="icon" href="https://cloudmindshub.github.io/workshop/images/favicon.png" type="image/png">
+    <link rel="icon" href="http://localhost:1313/workshop/images/favicon.png" type="image/png">
 
     <title>Giới thiệu :: Thiết lập AWS Account</title>
 
     
-    <link href="https://cloudmindshub.github.io/workshop/css/nucleus.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/fontawesome-all.min.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hybrid.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/featherlight.min.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/perfect-scrollbar.min.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/auto-complete.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/atom-one-dark-reasonable.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/theme.css?1743828591" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hugo-theme.css?1743828591" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/nucleus.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/fontawesome-all.min.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/hybrid.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/featherlight.min.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/perfect-scrollbar.min.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/auto-complete.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/atom-one-dark-reasonable.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/theme.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/hugo-theme.css?1745167968" rel="stylesheet">
     
-    <link href="https://cloudmindshub.github.io/workshop/css/theme-workshop.css?1743828591" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/theme-workshop.css?1745167968" rel="stylesheet">
     
     
 
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery-3.3.1.min.js?1743828591"></script>
+    <script src="http://localhost:1313/workshop/js/jquery-3.3.1.min.js?1745167968"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,14 +36,14 @@
     </style>
     
   </head>
-  <body class="" data-url="https://cloudmindshub.github.io/workshop/vi/1-introduce/">
+  <body class="" data-url="http://localhost:1313/workshop/vi/1-introduce/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="https://cloudmindshub.github.io/workshop/">
+      <a id="logo" href="http://localhost:1313/workshop/">
 
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
 
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/lunr.min.js?1743828591"></script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/auto-complete.js?1743828591"></script>
+<script type="text/javascript" src="http://localhost:1313/workshop/js/lunr.min.js?1745167968"></script>
+<script type="text/javascript" src="http://localhost:1313/workshop/js/auto-complete.js?1745167968"></script>
 <script type="text/javascript">
     
-        var baseurl = "https:\/\/cloudmindshub.github.io\/workshop\/\/vi";
+        var baseurl = "http:\/\/localhost:1313\/workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/search.js?1743828591"></script>
+<script type="text/javascript" src="http://localhost:1313/workshop/js/search.js?1745167968"></script>
 
     
   </div>
@@ -87,7 +87,7 @@
         active
         
         ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/1-introduce/">
+      <a href="http://localhost:1313/workshop/vi/1-introduce/">
           <b>1. </b>Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
@@ -108,191 +108,13 @@
  
   
     
-    <li data-nav-id="/vi/2-finetune/" title="Fine-tuning VQA trên Nova" class="dd-item 
+    <li data-nav-id="/vi/2-dataset/" title="Chuẩn bị dataset" class="dd-item 
         
         
         
         ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/2-finetune/">
-          <b>2. </b>Fine-tuning VQA trên Nova
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-finetune/1-dataset/" title="Chuẩn bị dataset" class="dd-item 
-        
-        
-        
-        ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/2-finetune/1-dataset/">
-          <b>2.1. </b>Chuẩn bị dataset
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-finetune/2-s3/" title="S3 bucket" class="dd-item 
-        
-        
-        
-        ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/2-finetune/2-s3/">
-          <b>2.2. </b>S3 bucket
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-finetune/3-train/" title="Huấn luyện mô hình" class="dd-item 
-        
-        
-        
-        ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/2-finetune/3-train/">
-          <b>2.3. </b>Huấn luyện mô hình
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-finetune/4-result/" title="Kết quả thử nghiệm" class="dd-item 
-        
-        
-        
-        ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/2-finetune/4-result/">
-          <b>2.4. </b>Kết quả thử nghiệm
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-finetune/5-clean/" title="Xóa tài nguyên" class="dd-item 
-        
-        
-        
-        ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/2-finetune/5-clean/">
-          <b>2.5. </b>Xóa tài nguyên
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-distillation/" title="" class="dd-item 
-        
-        
-        
-        ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/3-distillation/">
-          
+      <a href="http://localhost:1313/workshop/vi/2-dataset/">
+          <b>2. </b>Chuẩn bị dataset
           
             <i class="fas fa-check read-icon"></i>
           
@@ -312,13 +134,65 @@
  
   
     
-    <li data-nav-id="/vi/4-pre-training/" title="" class="dd-item 
+    <li data-nav-id="/vi/3-train/" title="Fine-tuning" class="dd-item 
         
         
         
         ">
-      <a href="https://cloudmindshub.github.io/workshop/vi/4-pre-training/">
+      <a href="http://localhost:1313/workshop/vi/3-train/">
+          <b>3. </b>Fine-tuning
           
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-evaluation/" title="Đánh giá mô hình" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/workshop/vi/4-evaluation/">
+          <b>4. </b>Đánh giá mô hình
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-clean/" title="Dọn tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="http://localhost:1313/workshop/vi/5-clean/">
+          <b>5. </b>Dọn tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -338,10 +212,6 @@
       <section id="shortcuts">
         <h4>More</h4>
         <ul>
-          
-              <li> 
-                  <a class="padding" href="https://www.linkedin.com/company/105900568/admin/dashboard/"><i class='fab fa-linkedin'></i> Cloudminds</a>
-              </li>
           
               <li> 
                   <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> FCJ AWS</a>
@@ -369,7 +239,7 @@
                   
                     
                     
-                      <option id="en" value="https://cloudmindshub.github.io/workshop/1-introduce/">English</option>
+                      <option id="en" value="http://localhost:1313/workshop/1-introduce/">English</option>
                     
                   
               
@@ -383,7 +253,7 @@
                   
                     
                     
-                      <option id="vi" value="https://cloudmindshub.github.io/workshop/vi/1-introduce/" selected>Tiếng Việt</option>
+                      <option id="vi" value="http://localhost:1313/workshop/vi/1-introduce/" selected>Tiếng Việt</option>
                     
                   
               
@@ -473,7 +343,7 @@
             
           
           
-            <a href='https://cloudmindshub.github.io/workshop/vi/'>Customizing Amazon Nova models</a> > Giới thiệu
+            <a href='http://localhost:1313/workshop/vi/'>Customizing Amazon Nova models</a> > Giới thiệu
           
         
           
@@ -488,9 +358,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#khái-niệm">Khái Niệm</a></li>
+        <li></li>
         <li><a href="#so-sánh-các-kỹ-thuật-tùy-chỉnh-mô-hình">So sánh các kỹ thuật tùy chỉnh mô hình</a></li>
-        <li><a href="#tổng-kết">Tổng kết</a></li>
       </ul>
     </li>
   </ul>
@@ -518,71 +387,88 @@
 
 
 
-	<h3 id="khái-niệm">Khái Niệm</h3>
-<p>Trong phần này, chúng tôi giới thiệu các khái niệm và kỹ thuật chính được sử dụng để tùy chỉnh mô hình Amazon Nova, bao gồm <strong>Fine-tuning</strong>, <strong>Distillation</strong>, và <strong>Continued Pre-training</strong>. Mỗi phương pháp đều có ưu điểm và phù hợp với các yêu cầu cụ thể khác nhau.</p>
+	<p>Trong phần này, chúng ta sẽ cùng tìm hiểu ba phương pháp chính để cá nhân hóa và tối ưu hóa mô hình ngôn ngữ Amazon Nova:</p>
+<p><strong>Fine‑tuning</strong>: Huấn luyện lại trên tập dữ liệu có nhãn chuyên biệt cho một nhiệm vụ cụ thể.</p>
+<p><strong>Distillation</strong>: Chưng cất kiến thức từ mô hình lớn (teacher) sang mô hình nhỏ (student).</p>
+<p><strong>Continued Pre‑training</strong>: Tiếp tục huấn luyện mô hình trên tập dữ liệu không nhãn có quy mô lớn, tập trung vào một lĩnh vực chuyên ngành trước khi fine‑tuning.</p>
+<p>Mỗi phương pháp đều có đặc điểm riêng biệt và phù hợp với các yêu cầu ứng dụng khác nhau trong thực tiễn.</p>
 <h4 id="fine-tuning">Fine-tuning</h4>
 <p><strong>Khái niệm:</strong>
-Fine-tuning là quá trình huấn luyện thêm một mô hình ngôn ngữ đã được huấn luyện trước đó (pre-trained) trên một tập dữ liệu nhỏ hơn, chuyên biệt cho một tác vụ cụ thể. Điều này giúp mô hình hiểu rõ hơn về ngữ cảnh cụ thể của lĩnh vực ứng dụng.</p>
-<p><strong>Hình minh họa:</strong>
-<img src="https://cloudmindshub.github.io/workshop/images/fine-tune-example.png" alt="Fine-tuning illustration"></p>
+Fine-tuning là quá trình huấn luyện lại một mô hình ngôn ngữ đã được pre-trained trên một tập dữ liệu chuyên biệt có nhãn. Quá trình này điều chỉnh các tham số của mô hình để tối ưu hóa hiệu suất cho một tác vụ hoặc miền cụ thể, giúp mô hình thích nghi với ngữ cảnh và đặc thù của lĩnh vực ứng dụng.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>Ưu điểm:</strong></p>
 <ul>
-<li>Cải thiện hiệu suất trên các tác vụ chuyên biệt</li>
-<li>Không cần nhiều dữ liệu như huấn luyện từ đầu</li>
-<li>Nhanh chóng và tiết kiệm chi phí</li>
+<li>Cải thiện hiệu suất đáng kể trên các tác vụ chuyên biệt so với mô hình gốc</li>
+<li>Tiết kiệm tài nguyên tính toán vì không cần huấn luyện lại từ đầu</li>
+<li>Yêu cầu ít dữ liệu hơn so với pre-training (thường chỉ vài nghìn đến vài trăm nghìn mẫu)</li>
+<li>Thời gian huấn luyện ngắn hơn, từ vài giờ đến vài ngày tùy quy mô mô hình</li>
+<li>Linh hoạt trong việc điều chỉnh cho nhiều tác vụ khác nhau</li>
 </ul>
 <p><strong>Nhược điểm:</strong></p>
 <ul>
-<li>Dễ bị overfitting nếu dữ liệu quá ít</li>
-<li>Có thể làm mất đi kiến thức tổng quát của mô hình (catastrophic forgetting)</li>
+<li>Nguy cơ overfitting cao nếu tập dữ liệu quá nhỏ hoặc thiếu đa dạng</li>
+<li>Catastrophic forgetting: có thể làm mất đi kiến thức tổng quát của mô hình gốc</li>
+<li>Mất cân bằng trong hiệu suất giữa các tác vụ khác nhau</li>
 </ul>
 <p><strong>Use case thực tế:</strong></p>
 <ol>
-<li>Chatbot chăm sóc khách hàng được fine-tune trên dữ liệu hội thoại nội bộ của công ty để trả lời chính xác hơn.</li>
-<li>Hệ thống phân loại email spam được tinh chỉnh với dữ liệu từ tổ chức cụ thể để tăng độ chính xác.</li>
-<li>Ứng dụng nhận dạng thực thể trong văn bản y tế (Medical NER) được fine-tune từ mô hình gốc để xử lý hồ sơ bệnh án.</li>
+<li>Chatbot chăm sóc khách hàng: Fine-tune để hiểu chính sách, sản phẩm và phong cách giao tiếp của doanh nghiệp, tăng độ chính xác trong trả lời theo quy trình nội bộ.</li>
+<li>Hệ thống phân loại văn bản chuyên ngành: Như phân loại email spam theo đặc thù của tổ chức, hoặc phân loại tài liệu luật pháp theo các danh mục cụ thể.</li>
+<li>Y tế: Fine-tune mô hình để nhận dạng thực thể y tế (Medical NER) trong hồ sơ bệnh án, giúp trích xuất thông tin bệnh lý, thuốc và chẩn đoán chính xác hơn.</li>
 </ol>
 <h4 id="distillation">Distillation</h4>
 <p><strong>Khái niệm:</strong>
-Distillation (chưng cất mô hình) là kỹ thuật chuyển giao tri thức từ một mô hình lớn, phức tạp (teacher) sang một mô hình nhỏ, nhẹ hơn (student), giúp giảm kích thước và tăng tốc độ suy luận.</p>
-<p><strong>Hình minh họa:</strong>
-<img src="https://cloudmindshub.github.io/workshop/images/distillation-example.png" alt="Distillation illustration"></p>
+Distillation (chưng cất mô hình) là kỹ thuật chuyển giao tri thức từ một mô hình lớn, phức tạp (teacher model) sang một mô hình nhỏ, nhẹ hơn (student model). Phương pháp này sử dụng output phân phối xác suất từ mô hình teacher để huấn luyện mô hình student, giúp mô hình nhỏ hơn có thể bắt chước khả năng của mô hình lớn.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>Ưu điểm:</strong></p>
 <ul>
-<li>Giảm kích thước mô hình và độ trễ</li>
-<li>Dễ triển khai trên thiết bị có tài nguyên hạn chế (mobile, edge)</li>
+<li>Giảm đáng kể kích thước mô hình (có thể giảm 50-90% tham số)</li>
+<li>Tăng tốc độ suy luận (inference) và giảm độ trễ (latency)</li>
+<li>Giảm yêu cầu bộ nhớ và năng lượng khi triển khai</li>
+<li>Bảo tồn phần lớn khả năng của mô hình gốc trong một kiến trúc nhỏ gọn hơn</li>
+<li>Cho phép triển khai trên thiết bị có tài nguyên hạn chế như điện thoại, thiết bị IoT</li>
 </ul>
 <p><strong>Nhược điểm:</strong></p>
 <ul>
-<li>Có thể giảm hiệu suất so với mô hình gốc</li>
-<li>Cần thêm một bước huấn luyện phụ</li>
+<li>Giảm hiệu suất so với mô hình teacher gốc, đặc biệt trên các tác vụ phức tạp</li>
+<li>Yêu cầu quy trình huấn luyện phức tạp hơn, cần tối ưu nhiều hyperparameter</li>
+<li>Cần cân bằng giữa kích thước và hiệu suất để đạt kết quả tối ưu</li>
+<li>Phụ thuộc vào chất lượng của mô hình teacher và dữ liệu chuyển giao</li>
 </ul>
 <p><strong>Use case thực tế:</strong></p>
 <ol>
-<li>Tạo phiên bản nhẹ của mô hình chatbot để triển khai trên thiết bị IoT trong nhà thông minh.</li>
-<li>Rút gọn mô hình phân tích cảm xúc để tích hợp vào hệ thống hỗ trợ khách hàng trên ứng dụng di động.</li>
-<li>Triển khai phiên bản student của mô hình kiểm tra đạo văn cho các trường đại học có tài nguyên hạn chế.</li>
+<li>Trợ lý ảo trên thiết bị di động: Tạo phiên bản nhẹ của mô hình chat để chạy trực tiếp trên smartphone, giảm độ trễ và bảo vệ quyền riêng tư.</li>
+<li>Hệ thống nhà thông minh: Triển khai mô hình nhỏ gọn trên các thiết bị IoT để xử lý ngôn ngữ tự nhiên và ra quyết định mà không cần kết nối cloud.</li>
 </ol>
 <h4 id="continued-pre-training">Continued Pre-training</h4>
 <p><strong>Khái niệm:</strong>
-Continued pre-training là quá trình huấn luyện tiếp tục một mô hình ngôn ngữ đã được huấn luyện trước đó trên một tập dữ liệu lớn không có nhãn, chuyên biệt theo lĩnh vực trước khi thực hiện fine-tuning.</p>
-<p><strong>Hình minh họa:</strong>
-<img src="https://cloudmindshub.github.io/workshop/images/continued-pretraining.png" alt="Continued Pre-training illustration"></p>
+Continued Pre-training (tiếp tục tiền huấn luyện) là quá trình huấn luyện tiếp một mô hình ngôn ngữ lớn đã được pre-trained trên một tập dữ liệu mới, không có nhãn, thường chuyên biệt cho một lĩnh vực. Phương pháp này giúp mô hình hấp thụ thêm kiến thức chuyên ngành trước khi thực hiện fine-tuning cho các tác vụ cụ thể.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p><strong>Ưu điểm:</strong></p>
 <ul>
-<li>Giúp mô hình hấp thụ thêm kiến thức chuyên ngành</li>
-<li>Cải thiện khả năng tổng quát hoá khi fine-tune</li>
+<li>Mở rộng kiến thức chuyên ngành của mô hình về lĩnh vực cụ thể</li>
+<li>Cải thiện đáng kể hiệu suất khi kết hợp với fine-tuning sau đó</li>
+<li>Tăng khả năng tổng quát hóa (generalization) khi xử lý dữ liệu mới</li>
+<li>Giảm thiểu vấn đề catastrophic forgetting so với chỉ fine-tuning</li>
+<li>Hiệu quả đặc biệt cho các lĩnh vực chuyên sâu như y tế, luật, tài chính</li>
 </ul>
 <p><strong>Nhược điểm:</strong></p>
 <ul>
-<li>Tốn nhiều tài nguyên tính toán</li>
-<li>Yêu cầu tập dữ liệu lớn và phù hợp với lĩnh vực</li>
+<li>Đòi hỏi tài nguyên tính toán lớn, thường cần GPU/TPU mạnh và thời gian dài</li>
+<li>Yêu cầu tập dữ liệu lớn và chất lượng từ lĩnh vực mục tiêu</li>
+<li>Quy trình huấn luyện phức tạp, khó tối ưu hóa và theo dõi</li>
+<li>Có nguy cơ bias từ dữ liệu huấn luyện nếu không được lọc kỹ</li>
+<li>Chi phí cao cho cả dữ liệu và tài nguyên tính toán</li>
 </ul>
 <p><strong>Use case thực tế:</strong></p>
 <ol>
-<li>Tiền huấn luyện mô hình với hàng triệu bài báo khoa học trước khi fine-tune cho hệ thống trích xuất thông tin học thuật.</li>
-<li>Sử dụng dữ liệu từ các diễn đàn công nghệ để tiếp tục huấn luyện mô hình, sau đó tinh chỉnh cho trợ lý kỹ thuật.</li>
-<li>Huấn luyện tiếp mô hình trên tập tin tài chính doanh nghiệp để cải thiện hệ thống phân tích báo cáo tài chính.</li>
+<li>Y tế: Tiếp tục pre-train mô hình trên kho dữ liệu y khoa (hàng triệu bài báo PUBMED, hồ sơ bệnh án) trước khi fine-tune cho chẩn đoán, tư vấn điều trị.</li>
+<li>Tài chính: Huấn luyện trên báo cáo tài chính, tin tức kinh tế và dữ liệu thị trường trước khi fine-tune cho phân tích đầu tư, dự báo thị trường.</li>
+<li>Pháp lý: Pre-train liên tục trên văn bản luật, án lệ và tài liệu pháp lý trước khi fine-tune cho hệ thống hỗ trợ soạn thảo, phân tích hợp đồng.</li>
+<li>Nghiên cứu khoa học: Tiếp tục huấn luyện trên corpus bài báo khoa học ngành cụ thể trước khi fine-tune cho hệ thống trích xuất thông tin, tổng hợp nghiên cứu.</li>
 </ol>
 <h3 id="so-sánh-các-kỹ-thuật-tùy-chỉnh-mô-hình">So sánh các kỹ thuật tùy chỉnh mô hình</h3>
 <table>
@@ -596,72 +482,85 @@ Continued pre-training là quá trình huấn luyện tiếp tục một mô hì
 </thead>
 <tbody>
 <tr>
-<td><strong>Dữ liệu đầu vào</strong></td>
-<td>Có nhãn</td>
-<td>Có nhãn và mô hình teacher</td>
-<td>Không nhãn</td>
+<td><strong>Loại dữ liệu đầu vào</strong></td>
+<td>Có nhãn, theo tác vụ</td>
+<td>Có nhãn và dự đoán từ mô hình teacher</td>
+<td>Không nhãn, theo miền/lĩnh vực</td>
+</tr>
+<tr>
+<td><strong>Khối lượng dữ liệu cần thiết</strong></td>
+<td>Từ vài nghìn đến vài trăm nghìn mẫu</td>
+<td>Vừa phải, phụ thuộc vào tác vụ</td>
+<td>Lớn (hàng triệu văn bản)</td>
+</tr>
+<tr>
+<td><strong>Thời gian huấn luyện</strong></td>
+<td>Vài giờ đến vài ngày</td>
+<td>Trung bình</td>
+<td>Vài ngày đến vài tuần</td>
 </tr>
 <tr>
 <td><strong>Mục tiêu chính</strong></td>
-<td>Tùy chỉnh mô hình theo tác vụ cụ thể</td>
-<td>Nén mô hình, tăng tốc suy luận</td>
-<td>Mở rộng kiến thức chuyên ngành</td>
+<td>Tối ưu hóa cho tác vụ cụ thể</td>
+<td>Giảm kích thước, tăng tốc suy luận</td>
+<td>Bổ sung kiến thức chuyên ngành</td>
 </tr>
 <tr>
-<td><strong>Yêu cầu tài nguyên</strong></td>
+<td><strong>Yêu cầu tài nguyên tính toán</strong></td>
 <td>Trung bình</td>
-<td>Thấp</td>
-<td>Cao</td>
-</tr>
-<tr>
-<td><strong>Khả năng triển khai</strong></td>
-<td>Dễ triển khai với mô hình có sẵn</td>
-<td>Phù hợp thiết bị giới hạn tài nguyên</td>
-<td>Yêu cầu pipeline huấn luyện phức tạp hơn</td>
-</tr>
-<tr>
-<td><strong>Độ phức tạp</strong></td>
-<td>Vừa phải</td>
 <td>Thấp đến trung bình</td>
-<td>Cao</td>
+<td>Rất cao</td>
+</tr>
+<tr>
+<td><strong>Độ phức tạp triển khai</strong></td>
+<td>Đơn giản</td>
+<td>Trung bình</td>
+<td>Phức tạp</td>
+</tr>
+<tr>
+<td><strong>Khả năng mở rộng</strong></td>
+<td>Giới hạn ở tác vụ được huấn luyện</td>
+<td>Tốt cho triển khai quy mô lớn</td>
+<td>Linh hoạt cho nhiều tác vụ sau đó</td>
 </tr>
 <tr>
 <td><strong>Nguy cơ overfitting</strong></td>
 <td>Cao nếu ít dữ liệu</td>
-<td>Thấp</td>
+<td>Thấp đến trung bình</td>
 <td>Thấp</td>
 </tr>
 <tr>
-<td><strong>Ưu điểm nổi bật</strong></td>
-<td>Cá nhân hóa mạnh mẽ cho tác vụ cụ thể</td>
-<td>Nhẹ, nhanh, dễ triển khai</td>
-<td>Học sâu hơn theo lĩnh vực, tăng khả năng generalization</td>
-</tr>
-<tr>
-<td><strong>Nhược điểm</strong></td>
+<td><strong>Ảnh hưởng đến kiến thức ban đầu</strong></td>
 <td>Có thể làm mất kiến thức tổng quát</td>
-<td>Hiệu suất kém hơn mô hình gốc</td>
-<td>Tốn tài nguyên, cần dữ liệu lớn</td>
+<td>Duy trì được phần lớn</td>
+<td>Mở rộng và bổ sung</td>
 </tr>
 <tr>
-<td><strong>Ví dụ ứng dụng</strong></td>
-<td>Chatbot doanh nghiệp, phân loại văn bản</td>
-<td>Ứng dụng mobile, IoT, hệ thống nhúng</td>
-<td>Trích xuất thông tin chuyên ngành, phân tích tài chính</td>
+<td><strong>Chi phí vận hành</strong></td>
+<td>Thấp đến trung bình</td>
+<td>Rất thấp</td>
+<td>Cao</td>
+</tr>
+<tr>
+<td><strong>Thích hợp cho</strong></td>
+<td>Tác vụ cụ thể, dữ liệu có nhãn sẵn có</td>
+<td>Môi trường giới hạn tài nguyên</td>
+<td>Các lĩnh vực đặc thù, phức tạp</td>
+</tr>
+<tr>
+<td><strong>Phương pháp đánh giá</strong></td>
+<td>Metrics cụ thể của tác vụ</td>
+<td>So sánh với mô hình teacher</td>
+<td>Perplexity và đánh giá downstream</td>
 </tr>
 </tbody>
 </table>
-<h3 id="tổng-kết">Tổng kết</h3>
-<p>Trong phần giới thiệu này, chúng tôi đã làm rõ ba phương pháp chính để tùy chỉnh mô hình Amazon Nova: <strong>Fine-tuning</strong>, <strong>Distillation</strong> và <strong>Continued Pre-training</strong>. Mỗi phương pháp có những điểm mạnh, điểm yếu và yêu cầu khác nhau, phục vụ những mục tiêu triển khai cụ thể:</p>
-<ul>
-<li>Nếu cần mô hình phản hồi chính xác cho một tác vụ cụ thể, <strong>Fine-tuning</strong> là lựa chọn tối ưu.</li>
-<li>Nếu cần triển khai trên thiết bị tài nguyên thấp, <strong>Distillation</strong> là giải pháp phù hợp.</li>
-<li>Khi cần mô hình hiểu sâu hơn về ngữ cảnh ngành nghề, <strong>Continued Pre-training</strong> là hướng đi hiệu quả.</li>
-</ul>
-
-<div class="notices note" ><p>Trong các phần tiếp theo, chúng tôi sẽ trình bày chi tiết cách áp dụng từng kỹ thuật vào quy trình huấn luyện mô hình Nova, cùng các công cụ và kiến trúc hỗ trợ.</p>
-</div>
-
+<p>Mỗi phương pháp tùy chỉnh mô hình Amazon Nova đều có vai trò riêng trong việc thích nghi mô hình ngôn ngữ lớn vào các ứng dụng thực tế:</p>
+<p><strong>Fine-tuning</strong>: Lựa chọn tối ưu khi cần mô hình phản hồi chính xác cho một tác vụ cụ thể, đặc biệt khi có sẵn dữ liệu có nhãn chất lượng.
+<strong>Distillation</strong>: Giải pháp hiệu quả khi cần triển khai mô hình trên các thiết bị có tài nguyên hạn chế, ưu tiên tốc độ phản hồi và hiệu quả chi phí.
+<strong>Continued Pre-training</strong>: Hướng đi phù hợp khi cần mô hình thấu hiểu sâu sắc về một lĩnh vực chuyên môn cụ thể, đặc biệt trong các ngành như y tế, luật pháp hay tài chính.</p>
+<p>Việc lựa chọn và kết hợp các phương pháp này cần căn cứ vào yêu cầu cụ thể về hiệu suất, tài nguyên sẵn có và đặc thù ứng dụng.
+Vì <strong>Distillation</strong> trên AWS Bedrock đang ở tình trạng preview, <strong>Continued Pre-training</strong> thì quá phức tạp và tốn chi phí cao, các bài toán thực tế ở các doanh nghiệp, <strong>Fine-tuning</strong> là một sự lụa chọn phổ biến hơn. Sau khi đã sử dụng và đánh giá thử mô hình Nova Lite, chúng tôi nhận ra Nova Lite chưa hoạt động tốt trên bài toán hỏi đáp dựa trên hình ảnh tiếng việt. Do đó, trong phạm vi workshop này, chúng tôi sẽ fine-tuning lại dựa trên bộ dữ liệu hỏi đáp trên hình ảnh tiếng việt.</p>
 
 
 
@@ -727,21 +626,6 @@ Continued pre-training là quá trình huấn luyện tiếp tục một mô hì
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -760,57 +644,6 @@ Continued pre-training là quá trình huấn luyện tiếp tục một mô hì
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -856,10 +689,10 @@ Continued pre-training là quá trình huấn luyện tiếp tục một mô hì
 	 
 	 
 		
-			<a class="nav nav-prev" href="https://cloudmindshub.github.io/workshop/vi/" title="Customizing Amazon Nova models"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="http://localhost:1313/workshop/vi/" title="Customizing Amazon Nova models"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="https://cloudmindshub.github.io/workshop/vi/2-finetune/" title="Fine-tuning VQA trên Nova" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="http://localhost:1313/workshop/vi/2-dataset/" title="Chuẩn bị dataset" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -869,19 +702,19 @@ Continued pre-training là quá trình huấn luyện tiếp tục một mô hì
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://cloudmindshub.github.io/workshop/js/clipboard.min.js?1743828591"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.min.js?1743828591"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.jquery.min.js?1743828591"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery.sticky.js?1743828591"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/featherlight.min.js?1743828591"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/highlight.pack.js?1743828591"></script>
+    <script src="http://localhost:1313/workshop/js/clipboard.min.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/perfect-scrollbar.min.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/perfect-scrollbar.jquery.min.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/jquery.sticky.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/featherlight.min.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/highlight.pack.js?1745167968"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://cloudmindshub.github.io/workshop/js/modernizr.custom-3.6.0.js?1743828591"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/learn.js?1743828591"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/hugo-learn.js?1743828591"></script>
+    <script src="http://localhost:1313/workshop/js/modernizr.custom-3.6.0.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/learn.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/hugo-learn.js?1745167968"></script>
 
-    <link href="https://cloudmindshub.github.io/workshop/mermaid/mermaid.css?1743828591" rel="stylesheet" />
-    <script src="https://cloudmindshub.github.io/workshop/mermaid/mermaid.js?1743828591"></script>
+    <link href="http://localhost:1313/workshop/mermaid/mermaid.css?1745167968" rel="stylesheet" />
+    <script src="http://localhost:1313/workshop/mermaid/mermaid.js?1745167968"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
