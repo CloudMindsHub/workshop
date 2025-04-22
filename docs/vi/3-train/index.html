@@ -12,21 +12,21 @@
     <title>Fine-tuning :: Thiết lập AWS Account</title>
 
     
-    <link href="http://localhost:1313/workshop/css/nucleus.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/fontawesome-all.min.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/hybrid.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/featherlight.min.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/perfect-scrollbar.min.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/auto-complete.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/atom-one-dark-reasonable.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/theme.css?1745167968" rel="stylesheet">
-    <link href="http://localhost:1313/workshop/css/hugo-theme.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/nucleus.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/fontawesome-all.min.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/hybrid.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/featherlight.min.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/perfect-scrollbar.min.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/auto-complete.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/atom-one-dark-reasonable.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/theme.css?1745343730" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/hugo-theme.css?1745343730" rel="stylesheet">
     
-    <link href="http://localhost:1313/workshop/css/theme-workshop.css?1745167968" rel="stylesheet">
+    <link href="http://localhost:1313/workshop/css/theme-workshop.css?1745343730" rel="stylesheet">
     
     
 
-    <script src="http://localhost:1313/workshop/js/jquery-3.3.1.min.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/jquery-3.3.1.min.js?1745343730"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="http://localhost:1313/workshop/js/lunr.min.js?1745167968"></script>
-<script type="text/javascript" src="http://localhost:1313/workshop/js/auto-complete.js?1745167968"></script>
+<script type="text/javascript" src="http://localhost:1313/workshop/js/lunr.min.js?1745343730"></script>
+<script type="text/javascript" src="http://localhost:1313/workshop/js/auto-complete.js?1745343730"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="http://localhost:1313/workshop/js/search.js?1745167968"></script>
+<script type="text/javascript" src="http://localhost:1313/workshop/js/search.js?1745343730"></script>
 
     
   </div>
@@ -354,7 +354,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#các-giới-hạn">Các giới hạn</a></li>
+        <li><a href="#custom-model-bedrock">Custom model bedrock</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -378,7 +387,51 @@
 
 
 
-	
+	<h3 id="các-giới-hạn">Các giới hạn</h3>
+<h3 id="custom-model-bedrock">Custom model bedrock</h3>
+<ul>
+<li>
+<p>Chọn region <strong>us-east-1 (N. Virginia)</strong></p>
+</li>
+<li>
+<p>Chọn mục <strong>Custom models (fine tuning, dist,&hellip;)</strong></p>
+</li>
+</ul>
+<p><img alt="Train1" src="http://localhost:1313/workshop/images/3-train/train_1.png"></p>
+<ul>
+<li>Chọn <strong>Create Fine-tuning job</strong></li>
+</ul>
+<p><img alt="Train2" src="http://localhost:1313/workshop/images/3-train/train_2.png"></p>
+<ul>
+<li>Chọn mô hình muốn fine-tuning, ở đây mình chọn Nova Lite.</li>
+</ul>
+<p><img alt="Train3" src="http://localhost:1313/workshop/images/3-train/train_3.png"></p>
+<ul>
+<li>Điền tên mô hình fine-tuning và tên job.</li>
+</ul>
+<p><img alt="Train4" src="http://localhost:1313/workshop/images/3-train/train_4.png"></p>
+<ul>
+<li>Phần input data, ô đầu tiên các bạn chọn tới đường dẫn file <strong>train_jsonl</strong>. Hiện nay, với các bài toán fine-tuning, chúng ta cũng không cần thiết phải có dữ liệu val, tại vì&hellip;</li>
+</ul>
+<p><img alt="Train5" src="http://localhost:1313/workshop/images/3-train/train_5.png"></p>
+<ul>
+<li>Các siêu thông số  huấn luyện mình chọn như hình bên dưới</li>
+</ul>
+<p><img alt="Train6" src="http://localhost:1313/workshop/images/3-train/train_6.png"></p>
+<ul>
+<li>Chọn đường dẫn lưu mô hình đầu ra sau khi fine tune, chọn service role cấp quyền bedrock truy cập tới S3.</li>
+</ul>
+<p><img alt="Train7" src="http://localhost:1313/workshop/images/3-train/train_7.png"></p>
+<ul>
+<li>
+<p>Chọn <strong>Create Fine-tuning job</strong></p>
+</li>
+<li>
+<p>Nếu tất cả các format đều đúng và không có lỗi gì xảy ra. Bạn ra màn tab Jobs bên ngoài sẽ thấy Fine-tuning job đang trong quá trình In Progress. Thời gian phụ thuộc vào số lượng mẫu dữ liệu và epochs. Trường hợp của mình tầm 10 phút.</p>
+</li>
+</ul>
+<p><img alt="Train8" src="http://localhost:1313/workshop/images/3-train/train_8.png"></p>
+
 
 
 
@@ -522,19 +575,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="http://localhost:1313/workshop/js/clipboard.min.js?1745167968"></script>
-    <script src="http://localhost:1313/workshop/js/perfect-scrollbar.min.js?1745167968"></script>
-    <script src="http://localhost:1313/workshop/js/perfect-scrollbar.jquery.min.js?1745167968"></script>
-    <script src="http://localhost:1313/workshop/js/jquery.sticky.js?1745167968"></script>
-    <script src="http://localhost:1313/workshop/js/featherlight.min.js?1745167968"></script>
-    <script src="http://localhost:1313/workshop/js/highlight.pack.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/clipboard.min.js?1745343730"></script>
+    <script src="http://localhost:1313/workshop/js/perfect-scrollbar.min.js?1745343730"></script>
+    <script src="http://localhost:1313/workshop/js/perfect-scrollbar.jquery.min.js?1745343730"></script>
+    <script src="http://localhost:1313/workshop/js/jquery.sticky.js?1745343730"></script>
+    <script src="http://localhost:1313/workshop/js/featherlight.min.js?1745343730"></script>
+    <script src="http://localhost:1313/workshop/js/highlight.pack.js?1745343730"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="http://localhost:1313/workshop/js/modernizr.custom-3.6.0.js?1745167968"></script>
-    <script src="http://localhost:1313/workshop/js/learn.js?1745167968"></script>
-    <script src="http://localhost:1313/workshop/js/hugo-learn.js?1745167968"></script>
+    <script src="http://localhost:1313/workshop/js/modernizr.custom-3.6.0.js?1745343730"></script>
+    <script src="http://localhost:1313/workshop/js/learn.js?1745343730"></script>
+    <script src="http://localhost:1313/workshop/js/hugo-learn.js?1745343730"></script>
 
-    <link href="http://localhost:1313/workshop/mermaid/mermaid.css?1745167968" rel="stylesheet" />
-    <script src="http://localhost:1313/workshop/mermaid/mermaid.js?1745167968"></script>
+    <link href="http://localhost:1313/workshop/mermaid/mermaid.css?1745343730" rel="stylesheet" />
+    <script src="http://localhost:1313/workshop/mermaid/mermaid.js?1745343730"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

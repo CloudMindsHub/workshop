@@ -17,21 +17,24 @@ Bộ dữ liệu bao gồm 388.277 cặp mô tả chi tiết và câu hỏi - tr
 
 Các môn học bao gồm: Toán học 📐, Ngữ văn 📚, Tiếng Anh 🇬🇧, Vật lý ⚛️, Hóa học 🧪, Sinh học 🌱, Lịch sử 📜, Địa lý 🌍, Giáo dục công dân 🏫, Tin học 💻, Công nghệ 🛠️, Âm nhạc 🎵, Mỹ thuật 🎨, Thể dục ⚽,...
 
-Chỉ để thử nghiệm việc fine-tuning mô hình trên AWS Bedrock, trong workshop này chỉ dùng 1 file parquet của để huấn luyện.
+Vì chi phí có giới hạn, chỉ để thử nghiệm việc fine-tuning mô hình trên AWS Bedrock, trong workshop này chỉ dùng 100 mẫu dữ liệu để huấn luyện (số lượng mẫu tối thiểu theo yêu cầu của Bedrock ). 
 
 ### Tiền xử lý dữ liệu
 
 - Tải dữ liệu từ Hugging Face: https://huggingface.co/datasets/5CD-AI/Viet-Doc-VQA-II/tree/main/data
 
-![Architecture](/static/images/2-dataset/data-hf.png)
+![Architecture](/images/2-dataset/data-hf.png)
 
 - Nhập thư viện cần thiết
 
 ```
 import os
 import ast
+import csv
 import json
+import numpy as np
 import pandas as pd
+from sklearn.model_selection import train_test_split
 ```
 
 - Đọc file parquet thành Dataframe
@@ -42,25 +45,24 @@ df = pd.read_parquet('train-00000-of-00034.parquet', engine="pyarrow")
 df['conversations'] = df['conversations'].apply(
     lambda x: json.dumps(x.tolist(), ensure_ascii=False) if isinstance(x, np.ndarray) else json.dumps(x, ensure_ascii=False)
 )
+
+df = df.head(100)
 ```
 
-- Chia dữ liệu thành 3 bộ train (80%), val (10%), test (10%)
+- Chia dữ liệu thành 3 bộ train (90%), test (10%)
 
 ```
-# Chia tập train (80%) và tập val_test (20%)
-train_df, val_test_df = train_test_split(df, test_size=0.2)
-
-# Chia tiếp val_test thành validation (10%) và test (10%)
-val_df, test_df = train_test_split(val_test_df, test_size=0.5)
+# Chia tập train (90%) và tập test (10%)
+train_df, test_df = train_test_split(df, test_size=0.1)
 
 train_df.to_csv("viet_vqa_train.csv", index=False, encoding='utf-8')
-val_df.to_csv("viet_vqa_val.csv", index=False, encoding='utf-8')
 test_df.to_csv("viet_vqa_test.csv", index=False, encoding='utf-8')
 
 df_train = pd.read_csv('viet_vqa_train.csv')
-df_val = pd.read_csv('viet_vqa_val.csv')
 df_test = pd.read_csv('viet_vqa_test.csv')
 ```
+
+->>>>>>>>>>>>>>>>>1 tấm hình chỗ này show console số lượng dữ liệu
 
 
 ### Định dạng dữ liệu theo format AWS Bedrock
@@ -94,7 +96,7 @@ item = {
                         "source": {
                             "s3Location": {
                                 "uri": "s3://test-fineture-novalite/data-fineture/image_sample_1.jpg",
-                                "bucketOwner": "590******512"
+                                "bucketOwner": "536*********"
                             }
                         }
                     }
@@ -111,11 +113,17 @@ item = {
 }
 ```
 
-- Hàm định dạng dữ liệu
+- Hàm định dạng dữ liệu, thông điêp đầu tiên của role user sẽ chứa thêm hình ảnh, kết hợp với các thông điệp trong mẫu dữ liệu tạo ra 1 conversation.
 ```
 def create_jsonl_item(row):
     try:
         conversations = row.get("conversations")
+        json_conversation = json.loads(conversations)
+
+        for item in json_conversation:
+            if isinstance(item["content"], str):
+                item["content"] = [{"text": item["content"]}]
+
         message_id = row.get("id")
         if isinstance(conversations, str):
             conversations = json.loads(conversations)
@@ -123,24 +131,22 @@ def create_jsonl_item(row):
         if not isinstance(conversations, list):
             raise ValueError("Invalid JSON format in conversations column")
 
-        if len(conversations) > 0 and conversations[0]["role"] == "user":
-            original_text = conversations[0]["content"]
+        if len(json_conversation) > 0 and json_conversation[0]["role"] == "user":
             image_info = {
                 "image": {
                     "format": "png",
                     "source": {
                         "s3Location": {
                             "uri": f"s3://data-vqa-fine-tune-nova/train/image_{message_id}.png",
-                            "bucketOwner": "536697245883"
+                            "bucketOwner": "536*********"
                         }
                     }
                 }
             }
-            conversations[0]["content"] = [
-                {"text": original_text},
-                image_info
-            ]
-
+            content_user = json_conversation[0]["content"]
+            content_user.append(image_info)
+            json_conversation[0]["content"] = content_user
+        print(json_conversation)
         return {
             "schemaVersion": "bedrock-conversation-2024",
             "system": [
@@ -157,28 +163,61 @@ def create_jsonl_item(row):
                     )
                 }
             ],
-            "messages": conversations
+            "messages": json_conversation
         }
     except Exception as e:
-        print(f"Lỗi khi xử lý conversations: {e}, row ID: {row['id']}, {conversations}")
-        return None  # Trả về None nếu có lỗi
+        print(f"Lỗi khi xử lý conversations: {e}, row conversation: {conversations}")
+        return None
+```
+
+- Đọc dữ liệu train từ file **viet_vqa_train.csv**
+```
+df_train = pd.read_csv('viet_vqa_train.csv')
+df_train
+```
+
+- Chuyển đổi hình ảnh dạng bytes thành file png và lưu trong một folder để upload lên s3 bucket.
+```
+output_folder = 'train_images'
+
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+for idx, row in df_train.iterrows():
+    try:
+        image_bytes = eval(row['image'])
+        image_data = image_bytes['bytes'] if isinstance(image_bytes, dict) else image_bytes
+
+        img = Image.open(io.BytesIO(image_data))
+
+        file_path = os.path.join(output_folder, f'image_{idx}.png')
+
+        img.save(file_path, format='PNG')
+
+        print(f"Đã lưu ảnh: {file_path}")
+    except Exception as e:
+        print(f"Lỗi khi xử lý ảnh ở dòng {idx}: {e}")
 ```
 
 - Apply cho cả Dataframe
 ```
-jsonl_data = df_sample.apply(create_jsonl_item, axis=1).tolist()
+jsonl_data = df_train.apply(create_jsonl_item, axis=1).tolist()
 ```
 
 - Lưu lại thành file jsonl
 ```
 jsonl_data = [item for item in jsonl_data if item is not None]
 
-with open("data_finetune_100.jsonl", "w", encoding="utf-8") as f:
+with open("data_train_90.jsonl", "w", encoding="utf-8") as f:
     for item in jsonl_data:
         json.dump(item, f, ensure_ascii=False)
         f.write("\n")
 ```
 
 {{% notice note %}}
-Tương tự như cách làm của file jsonl train, ta sẽ áp dụng cho file jsonl của val và test.
+Tương tự như cách làm của bộ dữ liệu train, ta sẽ áp dụng cho file **viet_vqa_test.csv**.
 {{% /notice %}}
+
+- Upload tất cả lên s3. Ta được cấu trúc bộ dữ liệu trên s3 như hình bên dưới.
+
+![S3-Dataset](/images/2-dataset/s3_dataset.png)
