@@ -17,7 +17,7 @@ Each method has distinct characteristics and is suitable for different real-worl
 
 ### Amazon Bedrock
 
-![Fine-tuning illustration](/images/1-introduce/amazon-bedrock.jpeg)
+![Fine-tuning illustration](/images/1-introduce/amazon-bedrock.jpg)
 
 To efficiently and quickly implement customization methods such as **Fine-tuning**, **Distillation**, and **Continued Pre-training**, **Amazon Bedrock** is the ideal service.
 

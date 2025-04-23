@@ -20,7 +20,7 @@ Mỗi phương pháp đều có đặc điểm riêng biệt và phù hợp vớ
 
 ### Amazon Bedrock
 
-![Fine-tuning illustration](/images/1-introduce/amazon-bedrock.jpeg)
+![Fine-tuning illustration](/images/1-introduce/amazon-bedrock.jpg)
 
 Để thực hiện các phương pháp tùy chỉnh như **Fine-tuning**, **Distillation**, và **Continued Pre-training** một cách nhanh chóng và hiệu quả, **Amazon Bedrock** chính là dịch vụ lý tưởng.
 
