@@ -5,26 +5,23 @@ weight = 1
 chapter = false
 +++
 
-# Customizing Amazon Nova models
+# Fine-tuning Amazon Nova models on AWS Bedrock
 
 ### Overview
-As AI and Machine Learning continue to evolve, fine-tuning large language models (LLMs) has become essential for optimizing performance to meet specific needs. Our project focuses on customizing **Amazon Nova** models through **fine-tuning** techniques to enhance accuracy and relevance for real-world applications.
+In recent years, **Artificial Intelligence (AI)** has emerged as a powerful tool, widely applied across various fields such as healthcare, education, business, and technology. However, for AI to truly **understand** and **effectively solve** a specific problem, we often need to "**retrain**" it using our own data. This process is called **fine-tuning**.
 
-**Amazon Nova** is an advanced AI model developed by AWS, providing powerful natural language processing capabilities. It can be fine-tuned to fit enterprise applications, chatbots, text analysis, and various other AI use cases. By leveraging fine-tuning, we can adjust **Nova** to our project's specific dataset, improving accuracy and response quality for specialized queries.
-
-In the following sections, we will detail the **fine-tuning** process, the technologies used, and the technical challenges encountered during the implementation of our project.
+Simply put, fine-tuning is a method that helps a pre-trained AI model become more suited to the specific needs and data of an individual or organization. Instead of building a model from scratch — which can be time-consuming, labor-intensive, and expensive — fine-tuning allows us to leverage existing capabilities and adjust them to make the AI work more efficiently in real-world scenarios. This is a crucial step in bringing AI into real applications that align closely with everyday usage needs.
 
 ### Architecture
 
-![Architecture](/images/)
+The **fine-tuning** process of an AI model typically goes through the following steps:
 
-### Deployment Process
-Dataset Preparation -> ...
+![Fine-tuning illustration](/images/1-introduce/Fine-Tuning-Process.jpg)
 
-### Table of Contents
+### Main Content
 
-1. [Giới thiệu](1-introduce/)
-2. [Chuẩn bị dữ liệu](2-dataset)
-3. [Huấn luyện tinh chỉnh mô hình](3-train)
-4. [Đánh giá mô hình](5-result)
-5. [Clean up resources](6-clean)
+1. [Introduction](1-introduce)
+2. [Prepare the dataset](2-dataset)
+3. [Fine-tune the model](3-train)
+4. [Evaluate the model](4-evaluation)
+5. [Clean up resources](5-clean)

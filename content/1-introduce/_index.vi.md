@@ -9,21 +9,36 @@ pre = "<b>1. </b>"
 
 Trong phần này, chúng ta sẽ cùng tìm hiểu ba phương pháp chính để cá nhân hóa và tối ưu hóa mô hình ngôn ngữ Amazon Nova:
 
-**Fine‑tuning**: Huấn luyện lại trên tập dữ liệu có nhãn chuyên biệt cho một nhiệm vụ cụ thể.
+- **Fine‑tuning**: Huấn luyện lại trên tập dữ liệu có nhãn chuyên biệt cho một nhiệm vụ cụ thể.
 
-**Distillation**: Chưng cất kiến thức từ mô hình lớn (teacher) sang mô hình nhỏ (student).
+- **Distillation**: Chưng cất kiến thức từ mô hình lớn (teacher) sang mô hình nhỏ (student).
 
-**Continued Pre‑training**: Tiếp tục huấn luyện mô hình trên tập dữ liệu không nhãn có quy mô lớn, tập trung vào một lĩnh vực chuyên ngành trước khi fine‑tuning.
+- **Continued Pre‑training**: Tiếp tục huấn luyện mô hình trên tập dữ liệu không nhãn có quy mô lớn, tập trung vào một lĩnh vực chuyên ngành trước khi fine‑tuning.
 
 Mỗi phương pháp đều có đặc điểm riêng biệt và phù hợp với các yêu cầu ứng dụng khác nhau trong thực tiễn.
+
+
+### Amazon Bedrock
+
+![Fine-tuning illustration](/images/1-introduce/amazon-bedrock.jpeg)
+
+Để thực hiện các phương pháp tùy chỉnh như **Fine-tuning**, **Distillation**, và **Continued Pre-training** một cách nhanh chóng và hiệu quả, **Amazon Bedrock** chính là dịch vụ lý tưởng.
+
+Amazon Bedrock là nền tảng mạnh mẽ cho phép bạn xây dựng và triển khai các ứng dụng AI tạo sinh (generative AI) mà **không cần phải quản lý cơ sở hạ tầng phức tạp**. Với Bedrock, bạn có thể dễ dàng truy cập vào nhiều mô hình ngôn ngữ lớn (LLMs) hàng đầu từ các nhà cung cấp nổi tiếng như AI21 Labs, Anthropic, Cohere, Meta, Stability AI, và Amazon, đồng thời thực hiện **fine-tuning** trực tiếp trên dữ liệu riêng của mình.
+
+Thông qua Bedrock, việc cá nhân hóa mô hình trở nên cực kỳ đơn giản:
+- Không cần tự xây dựng hạ tầng GPU tốn kém.
+- Hỗ trợ tùy chỉnh mô hình bằng dữ liệu nội bộ chỉ với vài bước cấu hình.
+- Đảm bảo tính bảo mật cao, khi dữ liệu huấn luyện và dữ liệu inference đều được bảo vệ trên AWS.
+- Dễ dàng tích hợp vào các ứng dụng hiện có thông qua API đơn giản và mạnh mẽ.
+
+Nhờ đó, **Amazon Bedrock** giúp rút ngắn thời gian phát triển, giảm chi phí vận hành và tăng tính linh hoạt khi triển khai các giải pháp AI chuyên biệt theo nhu cầu thực tế của từng doanh nghiệp.
+
 
 #### Fine-tuning
 
 **Khái niệm:**
 Fine-tuning là quá trình huấn luyện lại một mô hình ngôn ngữ đã được pre-trained trên một tập dữ liệu chuyên biệt có nhãn. Quá trình này điều chỉnh các tham số của mô hình để tối ưu hóa hiệu suất cho một tác vụ hoặc miền cụ thể, giúp mô hình thích nghi với ngữ cảnh và đặc thù của lĩnh vực ứng dụng.
-
-<!-- **Hình minh họa:**
-![Fine-tuning illustration](/images/fine-tune-example.png) -->
 
 **Ưu điểm:**
 - Cải thiện hiệu suất đáng kể trên các tác vụ chuyên biệt so với mô hình gốc
@@ -47,9 +62,6 @@ Fine-tuning là quá trình huấn luyện lại một mô hình ngôn ngữ đ�
 **Khái niệm:**
 Distillation (chưng cất mô hình) là kỹ thuật chuyển giao tri thức từ một mô hình lớn, phức tạp (teacher model) sang một mô hình nhỏ, nhẹ hơn (student model). Phương pháp này sử dụng output phân phối xác suất từ mô hình teacher để huấn luyện mô hình student, giúp mô hình nhỏ hơn có thể bắt chước khả năng của mô hình lớn.
 
-<!-- **Hình minh họa:**
-![Distillation illustration](/images/distillation-example.png) -->
-
 **Ưu điểm:**
 - Giảm đáng kể kích thước mô hình (có thể giảm 50-90% tham số)
 - Tăng tốc độ suy luận (inference) và giảm độ trễ (latency)
@@ -71,9 +83,6 @@ Distillation (chưng cất mô hình) là kỹ thuật chuyển giao tri thức 
 
 **Khái niệm:**
 Continued Pre-training (tiếp tục tiền huấn luyện) là quá trình huấn luyện tiếp một mô hình ngôn ngữ lớn đã được pre-trained trên một tập dữ liệu mới, không có nhãn, thường chuyên biệt cho một lĩnh vực. Phương pháp này giúp mô hình hấp thụ thêm kiến thức chuyên ngành trước khi thực hiện fine-tuning cho các tác vụ cụ thể.
-
-<!-- **Hình minh họa:**
-![Continued Pre-training illustration](/images/continued-pretraining.png) -->
 
 **Ưu điểm:**
 - Mở rộng kiến thức chuyên ngành của mô hình về lĩnh vực cụ thể
@@ -115,9 +124,12 @@ Continued Pre-training (tiếp tục tiền huấn luyện) là quá trình hu�
 
 Mỗi phương pháp tùy chỉnh mô hình Amazon Nova đều có vai trò riêng trong việc thích nghi mô hình ngôn ngữ lớn vào các ứng dụng thực tế:
 
-**Fine-tuning**: Lựa chọn tối ưu khi cần mô hình phản hồi chính xác cho một tác vụ cụ thể, đặc biệt khi có sẵn dữ liệu có nhãn chất lượng.
-**Distillation**: Giải pháp hiệu quả khi cần triển khai mô hình trên các thiết bị có tài nguyên hạn chế, ưu tiên tốc độ phản hồi và hiệu quả chi phí.
-**Continued Pre-training**: Hướng đi phù hợp khi cần mô hình thấu hiểu sâu sắc về một lĩnh vực chuyên môn cụ thể, đặc biệt trong các ngành như y tế, luật pháp hay tài chính.
+- **Fine-tuning**: Lựa chọn tối ưu khi cần mô hình phản hồi chính xác cho một tác vụ cụ thể, đặc biệt khi có sẵn dữ liệu có nhãn chất lượng.
+- **Distillation**: Giải pháp hiệu quả khi cần triển khai mô hình trên các thiết bị có tài nguyên hạn chế, ưu tiên tốc độ phản hồi và hiệu quả chi phí.
+- **Continued Pre-training**: Hướng đi phù hợp khi cần mô hình thấu hiểu sâu sắc về một lĩnh vực chuyên môn cụ thể, đặc biệt trong các ngành như y tế, luật pháp hay tài chính.
 
 Việc lựa chọn và kết hợp các phương pháp này cần căn cứ vào yêu cầu cụ thể về hiệu suất, tài nguyên sẵn có và đặc thù ứng dụng.
+
+{{% notice info %}}
 Vì **Distillation** trên AWS Bedrock đang ở tình trạng preview, **Continued Pre-training** thì quá phức tạp và tốn chi phí cao, các bài toán thực tế ở các doanh nghiệp, **Fine-tuning** là một sự lụa chọn phổ biến hơn. Sau khi đã sử dụng và đánh giá thử mô hình Nova Lite, chúng tôi nhận ra Nova Lite chưa hoạt động tốt trên bài toán hỏi đáp dựa trên hình ảnh tiếng việt. Do đó, trong phạm vi workshop này, chúng tôi sẽ fine-tuning lại dựa trên bộ dữ liệu hỏi đáp trên hình ảnh tiếng việt.
+{{% /notice %}}
