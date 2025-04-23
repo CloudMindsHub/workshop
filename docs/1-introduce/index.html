@@ -12,21 +12,21 @@
     <title>Introduce :: AWS Account Setup</title>
 
     
-    <link href="https://cloudmindshub.github.io/workshop/css/nucleus.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/fontawesome-all.min.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hybrid.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/featherlight.min.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/perfect-scrollbar.min.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/auto-complete.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/atom-one-dark-reasonable.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/theme.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hugo-theme.css?1745415011" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/nucleus.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/fontawesome-all.min.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/hybrid.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/featherlight.min.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/perfect-scrollbar.min.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/auto-complete.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/atom-one-dark-reasonable.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/theme.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/hugo-theme.css?1745417658" rel="stylesheet">
     
-    <link href="https://cloudmindshub.github.io/workshop/css/theme-workshop.css?1745415011" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/theme-workshop.css?1745417658" rel="stylesheet">
     
     
 
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery-3.3.1.min.js?1745415011"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/jquery-3.3.1.min.js?1745417658"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/lunr.min.js?1745415011"></script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/auto-complete.js?1745415011"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/lunr.min.js?1745417658"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/auto-complete.js?1745417658"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/cloudmindshub.github.io\/workshop\/";
     
 </script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/search.js?1745415011"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/search.js?1745417658"></script>
 
     
   </div>
@@ -357,9 +357,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#concepts">Concepts</a></li>
+        <li><a href="#amazon-bedrock">Amazon Bedrock</a></li>
         <li><a href="#comparison-of-model-customization-techniques">Comparison of Model Customization Techniques</a></li>
-        <li><a href="#summary">Summary</a></li>
       </ul>
     </li>
   </ul>
@@ -387,71 +386,96 @@
 
 
 
-	<h3 id="concepts">Concepts</h3>
-<p>In this section, we introduce the key concepts and techniques used to customize the Amazon Nova model, including <strong>Fine-tuning</strong>, <strong>Distillation</strong>, and <strong>Continued Pre-training</strong>. Each method has its advantages and is suitable for different specific requirements.</p>
+	<p>In this section, we will explore three main methods for personalizing and optimizing the Amazon Nova language model:</p>
+<ul>
+<li><strong>Fine-tuning</strong>: Retraining on a labeled dataset tailored for a specific task.</li>
+<li><strong>Distillation</strong>: Transferring knowledge from a large model (teacher) to a smaller model (student).</li>
+<li><strong>Continued Pre-training</strong>: Further training the model on a large-scale, unlabeled dataset focused on a specialized domain before fine-tuning.</li>
+</ul>
+<p>Each method has distinct characteristics and is suitable for different real-world application requirements.</p>
+<h3 id="amazon-bedrock">Amazon Bedrock</h3>
+<p><img src="https://cloudmindshub.github.io/workshop/images/1-introduce/amazon-bedrock.jpeg" alt="Fine-tuning illustration"></p>
+<p>To efficiently and quickly implement customization methods such as <strong>Fine-tuning</strong>, <strong>Distillation</strong>, and <strong>Continued Pre-training</strong>, <strong>Amazon Bedrock</strong> is the ideal service.</p>
+<p>Amazon Bedrock is a powerful platform that enables you to build and deploy generative AI applications <strong>without managing complex infrastructure</strong>. With Bedrock, you can easily access leading large language models (LLMs) from providers like AI21 Labs, Anthropic, Cohere, Meta, Stability AI, and Amazon, while performing <strong>fine-tuning</strong> directly on your proprietary data.</p>
+<p>Through Bedrock, model customization becomes remarkably straightforward:</p>
+<ul>
+<li>No need to build expensive GPU infrastructure.</li>
+<li>Supports model customization with internal data in just a few configuration steps.</li>
+<li>Ensures high security, as training and inference data are protected on AWS.</li>
+<li>Easily integrates into existing applications via simple and robust APIs.</li>
+</ul>
+<p>As a result, <strong>Amazon Bedrock</strong> reduces development time, lowers operational costs, and increases flexibility when deploying specialized AI solutions tailored to specific business needs.</p>
 <h4 id="fine-tuning">Fine-tuning</h4>
-<p><strong>Concept:</strong><br>
-Fine-tuning is the process of further training a pre-trained language model on a smaller, task-specific dataset. This helps the model better understand the specific context of the application domain.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><strong>Concept:</strong>
+Fine-tuning is the process of retraining a pre-trained language model on a specialized, labeled dataset. This process adjusts the model’s parameters to optimize performance for a specific task or domain, enabling the model to adapt to the context and nuances of the application domain.</p>
 <p><strong>Advantages:</strong></p>
 <ul>
-<li>Improves performance on specialized tasks</li>
-<li>Requires less data compared to training from scratch</li>
-<li>Faster and cost-effective</li>
+<li>Significantly improves performance on specialized tasks compared to the original model.</li>
+<li>Saves computational resources as it does not require training from scratch.</li>
+<li>Requires less data than pre-training (typically thousands to hundreds of thousands of samples).</li>
+<li>Shorter training time, ranging from a few hours to a few days, depending on model scale.</li>
+<li>Flexible for adapting to various tasks.</li>
 </ul>
 <p><strong>Disadvantages:</strong></p>
 <ul>
-<li>Prone to overfitting with limited data</li>
-<li>Can lead to catastrophic forgetting of general knowledge</li>
+<li>High risk of overfitting if the dataset is too small or lacks diversity.</li>
+<li>Catastrophic forgetting: May lose general knowledge from the original model.</li>
+<li>Imbalanced performance across different tasks.</li>
 </ul>
-<p><strong>Real-world use cases:</strong></p>
+<p><strong>Real-world Use Cases:</strong></p>
 <ol>
-<li>A customer support chatbot fine-tuned on internal company conversations for more accurate responses.</li>
-<li>A spam email classifier refined with organization-specific data for higher accuracy.</li>
-<li>A Medical NER application fine-tuned from a base model to process medical records.</li>
+<li>Customer service chatbots: Fine-tune to understand company policies, products, and communication style, improving accuracy in responses aligned with internal processes.</li>
+<li>Specialized text classification systems: For example, classifying organization-specific spam emails or categorizing legal documents into specific categories.</li>
+<li>Healthcare: Fine-tune the model for Medical Named Entity Recognition (NER) in patient records, enhancing the extraction of information about diseases, medications, and diagnoses.</li>
 </ol>
 <h4 id="distillation">Distillation</h4>
-<p><strong>Concept:</strong><br>
-Distillation is a technique that transfers knowledge from a large, complex model (teacher) to a smaller, lightweight model (student), reducing size and improving inference speed.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><strong>Concept:</strong>
+Distillation (model distillation) is a technique for transferring knowledge from a large, complex model (teacher model) to a smaller, lighter model (student model). This method uses the probability distribution outputs from the teacher model to train the student model, enabling the smaller model to mimic the capabilities of the larger one.</p>
 <p><strong>Advantages:</strong></p>
 <ul>
-<li>Reduces model size and latency</li>
-<li>Easier deployment on resource-constrained devices (mobile, edge)</li>
+<li>Significantly reduces model size (by 50-90% of parameters).</li>
+<li>Increases inference speed and reduces latency.</li>
+<li>Lowers memory and energy requirements during deployment.</li>
+<li>Preserves much of the original model’s capabilities in a more compact architecture.</li>
+<li>Enables deployment on resource-constrained devices like smartphones or IoT devices.</li>
 </ul>
 <p><strong>Disadvantages:</strong></p>
 <ul>
-<li>May reduce performance compared to the original model</li>
-<li>Requires an additional training step</li>
+<li>Reduced performance compared to the original teacher model, especially on complex tasks.</li>
+<li>Requires a more complex training process, needing optimization of multiple hyperparameters.</li>
+<li>Requires balancing size and performance for optimal results.</li>
+<li>Depends on the quality of the teacher model and transfer data.</li>
 </ul>
-<p><strong>Real-world use cases:</strong></p>
+<p><strong>Real-world Use Cases:</strong></p>
 <ol>
-<li>Creating a lightweight version of a chatbot model for deployment on IoT devices in smart homes.</li>
-<li>Compressing a sentiment analysis model for integration into mobile customer support applications.</li>
-<li>Deploying a distilled plagiarism detection model for universities with limited computing resources.</li>
+<li>Virtual assistants on mobile devices: Create a lightweight version of a chat model to run directly on smartphones, reducing latency and enhancing privacy.</li>
+<li>Smart home systems: Deploy compact models on IoT devices for natural language processing and decision-making without cloud connectivity.</li>
 </ol>
 <h4 id="continued-pre-training">Continued Pre-training</h4>
-<p><strong>Concept:</strong><br>
-Continued pre-training involves further training a pre-trained language model on a large, unlabeled dataset specialized for a domain before fine-tuning.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p><strong>Concept:</strong>
+Continued Pre-training is the process of further training a pre-trained large language model on a new, unlabeled dataset, typically specialized for a specific domain. This method helps the model absorb additional domain-specific knowledge before fine-tuning for specific tasks.</p>
 <p><strong>Advantages:</strong></p>
 <ul>
-<li>Enhances domain-specific knowledge absorption</li>
-<li>Improves generalization ability when fine-tuning</li>
+<li>Expands the model’s domain-specific knowledge.</li>
+<li>Significantly improves performance when combined with subsequent fine-tuning.</li>
+<li>Enhances generalization when processing new data.</li>
+<li>Reduces catastrophic forgetting compared to fine-tuning alone.</li>
+<li>Highly effective for specialized domains like healthcare, law, or finance.</li>
 </ul>
 <p><strong>Disadvantages:</strong></p>
 <ul>
-<li>Requires significant computational resources</li>
-<li>Needs a large and domain-relevant dataset</li>
+<li>Requires significant computational resources, often needing powerful GPUs/TPUs and extended time.</li>
+<li>Demands large, high-quality datasets from the target domain.</li>
+<li>Complex training process, difficult to optimize and monitor.</li>
+<li>Risk of bias in training data if not carefully filtered.</li>
+<li>High costs for both data and computational resources.</li>
 </ul>
-<p><strong>Real-world use cases:</strong></p>
+<p><strong>Real-world Use Cases:</strong></p>
 <ol>
-<li>Pre-training a model on millions of scientific articles before fine-tuning it for an academic information extraction system.</li>
-<li>Using data from tech forums to continue training a model before refining it for a technical assistant.</li>
-<li>Further training a model on corporate financial data to improve financial report analysis systems.</li>
+<li>Healthcare: Continue pre-training on medical datasets (e.g., millions of PUBMED articles, patient records) before fine-tuning for diagnosis or treatment consultation.</li>
+<li>Finance: Train on financial reports, economic news, and market data before fine-tuning for investment analysis or market forecasting.</li>
+<li>Legal: Pre-train on legal texts, case law, and documents before fine-tuning for contract drafting or analysis systems.</li>
+<li>Scientific research: Continue training on a corpus of scientific papers in a specific field before fine-tuning for information extraction or research summarization.</li>
 </ol>
 <h3 id="comparison-of-model-customization-techniques">Comparison of Model Customization Techniques</h3>
 <table>
@@ -465,70 +489,88 @@ Continued pre-training involves further training a pre-trained language model on
 </thead>
 <tbody>
 <tr>
-<td><strong>Input Data</strong></td>
-<td>Labeled</td>
-<td>Labeled + Teacher Model</td>
-<td>Unlabeled</td>
+<td><strong>Input Data Type</strong></td>
+<td>Labeled, task-specific</td>
+<td>Labeled and teacher model predictions</td>
+<td>Unlabeled, domain-specific</td>
 </tr>
 <tr>
-<td><strong>Main Goal</strong></td>
-<td>Customize model for a specific task</td>
-<td>Compress model, speed up inference</td>
-<td>Expand domain-specific knowledge</td>
+<td><strong>Data Volume Required</strong></td>
+<td>Thousands to hundreds of thousands of samples</td>
+<td>Moderate, task-dependent</td>
+<td>Large (millions of texts)</td>
 </tr>
 <tr>
-<td><strong>Resource Requirement</strong></td>
-<td>Medium</td>
-<td>Low</td>
-<td>High</td>
-</tr>
-<tr>
-<td><strong>Deployment Feasibility</strong></td>
-<td>Easy with existing models</td>
-<td>Suitable for low-resource devices</td>
-<td>Requires complex training pipeline</td>
-</tr>
-<tr>
-<td><strong>Complexity</strong></td>
+<td><strong>Training Time</strong></td>
+<td>Hours to days</td>
 <td>Moderate</td>
-<td>Low to Medium</td>
-<td>High</td>
+<td>Days to weeks</td>
+</tr>
+<tr>
+<td><strong>Primary Goal</strong></td>
+<td>Optimize for specific tasks</td>
+<td>Reduce size, speed up inference</td>
+<td>Add domain-specific knowledge</td>
+</tr>
+<tr>
+<td><strong>Computational Resource Needs</strong></td>
+<td>Moderate</td>
+<td>Low to moderate</td>
+<td>Very high</td>
+</tr>
+<tr>
+<td><strong>Implementation Complexity</strong></td>
+<td>Simple</td>
+<td>Moderate</td>
+<td>Complex</td>
+</tr>
+<tr>
+<td><strong>Scalability</strong></td>
+<td>Limited to trained tasks</td>
+<td>Good for large-scale deployment</td>
+<td>Flexible for subsequent tasks</td>
 </tr>
 <tr>
 <td><strong>Overfitting Risk</strong></td>
-<td>High if data is limited</td>
+<td>High with limited data</td>
+<td>Low to moderate</td>
 <td>Low</td>
-<td>Low</td>
 </tr>
 <tr>
-<td><strong>Key Advantage</strong></td>
-<td>Strong task-specific adaptation</td>
-<td>Lightweight, fast, easy deployment</td>
-<td>Deeper domain learning, better generalization</td>
+<td><strong>Impact on Original Knowledge</strong></td>
+<td>May lose general knowledge</td>
+<td>Preserves much of it</td>
+<td>Expands and supplements</td>
 </tr>
 <tr>
-<td><strong>Disadvantages</strong></td>
-<td>Potential loss of general knowledge</td>
-<td>Lower performance than original model</td>
-<td>Resource-intensive, requires large data</td>
+<td><strong>Operational Cost</strong></td>
+<td>Low to moderate</td>
+<td>Very low</td>
+<td>High</td>
 </tr>
 <tr>
-<td><strong>Example Applications</strong></td>
-<td>Enterprise chatbot, text classification</td>
-<td>Mobile apps, IoT, embedded systems</td>
-<td>Specialized information extraction, financial analysis</td>
+<td><strong>Suitable For</strong></td>
+<td>Specific tasks with labeled data</td>
+<td>Resource-constrained environments</td>
+<td>Specialized, complex domains</td>
+</tr>
+<tr>
+<td><strong>Evaluation Method</strong></td>
+<td>Task-specific metrics</td>
+<td>Comparison with teacher model</td>
+<td>Perplexity and downstream <strong>downstream evaluation</strong></td>
 </tr>
 </tbody>
 </table>
-<h3 id="summary">Summary</h3>
-<p>In this introduction, we have clarified three key methods for customizing the Amazon Nova model: <strong>Fine-tuning</strong>, <strong>Distillation</strong>, and <strong>Continued Pre-training</strong>. Each method has different strengths, weaknesses, and requirements, serving specific deployment goals:</p>
+<p>Each method for customizing the Amazon Nova model plays a unique role in adapting large language models to real-world applications:</p>
 <ul>
-<li>If the goal is precise task-specific responses, <strong>Fine-tuning</strong> is the optimal choice.</li>
-<li>If the priority is deployment on low-resource devices, <strong>Distillation</strong> is the best solution.</li>
-<li>When deeper domain understanding is needed, <strong>Continued Pre-training</strong> is an effective approach.</li>
+<li><strong>Fine-tuning</strong>: Ideal when precise responses are needed for a specific task, especially with high-quality labeled data.</li>
+<li><strong>Distillation</strong>: Efficient for deploying models on resource-constrained devices, prioritizing response speed and cost-efficiency.</li>
+<li><strong>Continued Pre-training</strong>: Suitable for achieving deep understanding of a specific domain, particularly in fields like healthcare, law, or finance.</li>
 </ul>
+<p>The choice and combination of these methods depend on specific performance requirements, available resources, and application characteristics.</p>
 
-<div class="notices note" ><p>In the following sections, we will detail how to apply each technique in the Nova model training process, along with supporting tools and architectures.</p>
+<div class="notices info" ><p>Since <strong>Distillation</strong> on AWS Bedrock is in preview, and <strong>Continued Pre-training</strong> is complex and costly, <strong>Fine-tuning</strong> is a more popular choice for real-world business use cases. After testing the Nova Lite model, we found that it underperforms on Vietnamese image-based question-answering tasks. Therefore, within the scope of this workshop, we will fine-tune the model using a Vietnamese image-based question-answering dataset.</p>
 </div>
 
 
@@ -672,19 +714,19 @@ Continued pre-training involves further training a pre-trained language model on
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://cloudmindshub.github.io/workshop/js/clipboard.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.jquery.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery.sticky.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/featherlight.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/highlight.pack.js?1745415011"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/clipboard.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.jquery.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/jquery.sticky.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/featherlight.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/highlight.pack.js?1745417658"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://cloudmindshub.github.io/workshop/js/modernizr.custom-3.6.0.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/learn.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/hugo-learn.js?1745415011"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/modernizr.custom-3.6.0.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/learn.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/hugo-learn.js?1745417658"></script>
 
-    <link href="https://cloudmindshub.github.io/workshop/mermaid/mermaid.css?1745415011" rel="stylesheet" />
-    <script src="https://cloudmindshub.github.io/workshop/mermaid/mermaid.js?1745415011"></script>
+    <link href="https://cloudmindshub.github.io/workshop/mermaid/mermaid.css?1745417658" rel="stylesheet" />
+    <script src="https://cloudmindshub.github.io/workshop/mermaid/mermaid.js?1745417658"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -12,21 +12,21 @@
     <title>Giới thiệu :: Thiết lập AWS Account</title>
 
     
-    <link href="https://cloudmindshub.github.io/workshop/css/nucleus.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/fontawesome-all.min.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hybrid.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/featherlight.min.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/perfect-scrollbar.min.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/auto-complete.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/atom-one-dark-reasonable.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/theme.css?1745415011" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hugo-theme.css?1745415011" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/nucleus.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/fontawesome-all.min.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/hybrid.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/featherlight.min.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/perfect-scrollbar.min.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/auto-complete.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/atom-one-dark-reasonable.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/theme.css?1745417658" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/hugo-theme.css?1745417658" rel="stylesheet">
     
-    <link href="https://cloudmindshub.github.io/workshop/css/theme-workshop.css?1745415011" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/theme-workshop.css?1745417658" rel="stylesheet">
     
     
 
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery-3.3.1.min.js?1745415011"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/jquery-3.3.1.min.js?1745417658"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/lunr.min.js?1745415011"></script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/auto-complete.js?1745415011"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/lunr.min.js?1745417658"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/auto-complete.js?1745417658"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/cloudmindshub.github.io\/workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/search.js?1745415011"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/search.js?1745417658"></script>
 
     
   </div>
@@ -357,7 +357,7 @@
   <ul>
     <li>
       <ul>
-        <li></li>
+        <li><a href="#amazon-bedrock">Amazon Bedrock</a></li>
         <li><a href="#so-sánh-các-kỹ-thuật-tùy-chỉnh-mô-hình">So sánh các kỹ thuật tùy chỉnh mô hình</a></li>
       </ul>
     </li>
@@ -387,17 +387,33 @@
 
 
 	<p>Trong phần này, chúng ta sẽ cùng tìm hiểu ba phương pháp chính để cá nhân hóa và tối ưu hóa mô hình ngôn ngữ Amazon Nova:</p>
+<ul>
+<li>
 <p><strong>Fine‑tuning</strong>: Huấn luyện lại trên tập dữ liệu có nhãn chuyên biệt cho một nhiệm vụ cụ thể.</p>
+</li>
+<li>
 <p><strong>Distillation</strong>: Chưng cất kiến thức từ mô hình lớn (teacher) sang mô hình nhỏ (student).</p>
+</li>
+<li>
 <p><strong>Continued Pre‑training</strong>: Tiếp tục huấn luyện mô hình trên tập dữ liệu không nhãn có quy mô lớn, tập trung vào một lĩnh vực chuyên ngành trước khi fine‑tuning.</p>
+</li>
+</ul>
 <p>Mỗi phương pháp đều có đặc điểm riêng biệt và phù hợp với các yêu cầu ứng dụng khác nhau trong thực tiễn.</p>
-<h4 id="amazon-bedrock">Amazon Bedrock</h4>
-<p><img src="%5Cimages%5C1-introduce%5Camazon-bedrock.jpeg" alt="Fine-tuning illustration"></p>
+<h3 id="amazon-bedrock">Amazon Bedrock</h3>
+<p><img src="https://cloudmindshub.github.io/workshop/images/1-introduce/amazon-bedrock.jpeg" alt="Fine-tuning illustration"></p>
+<p>Để thực hiện các phương pháp tùy chỉnh như <strong>Fine-tuning</strong>, <strong>Distillation</strong>, và <strong>Continued Pre-training</strong> một cách nhanh chóng và hiệu quả, <strong>Amazon Bedrock</strong> chính là dịch vụ lý tưởng.</p>
+<p>Amazon Bedrock là nền tảng mạnh mẽ cho phép bạn xây dựng và triển khai các ứng dụng AI tạo sinh (generative AI) mà <strong>không cần phải quản lý cơ sở hạ tầng phức tạp</strong>. Với Bedrock, bạn có thể dễ dàng truy cập vào nhiều mô hình ngôn ngữ lớn (LLMs) hàng đầu từ các nhà cung cấp nổi tiếng như AI21 Labs, Anthropic, Cohere, Meta, Stability AI, và Amazon, đồng thời thực hiện <strong>fine-tuning</strong> trực tiếp trên dữ liệu riêng của mình.</p>
+<p>Thông qua Bedrock, việc cá nhân hóa mô hình trở nên cực kỳ đơn giản:</p>
+<ul>
+<li>Không cần tự xây dựng hạ tầng GPU tốn kém.</li>
+<li>Hỗ trợ tùy chỉnh mô hình bằng dữ liệu nội bộ chỉ với vài bước cấu hình.</li>
+<li>Đảm bảo tính bảo mật cao, khi dữ liệu huấn luyện và dữ liệu inference đều được bảo vệ trên AWS.</li>
+<li>Dễ dàng tích hợp vào các ứng dụng hiện có thông qua API đơn giản và mạnh mẽ.</li>
+</ul>
+<p>Nhờ đó, <strong>Amazon Bedrock</strong> giúp rút ngắn thời gian phát triển, giảm chi phí vận hành và tăng tính linh hoạt khi triển khai các giải pháp AI chuyên biệt theo nhu cầu thực tế của từng doanh nghiệp.</p>
 <h4 id="fine-tuning">Fine-tuning</h4>
 <p><strong>Khái niệm:</strong>
 Fine-tuning là quá trình huấn luyện lại một mô hình ngôn ngữ đã được pre-trained trên một tập dữ liệu chuyên biệt có nhãn. Quá trình này điều chỉnh các tham số của mô hình để tối ưu hóa hiệu suất cho một tác vụ hoặc miền cụ thể, giúp mô hình thích nghi với ngữ cảnh và đặc thù của lĩnh vực ứng dụng.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p><strong>Ưu điểm:</strong></p>
 <ul>
 <li>Cải thiện hiệu suất đáng kể trên các tác vụ chuyên biệt so với mô hình gốc</li>
@@ -421,8 +437,6 @@ Fine-tuning là quá trình huấn luyện lại một mô hình ngôn ngữ đ�
 <h4 id="distillation">Distillation</h4>
 <p><strong>Khái niệm:</strong>
 Distillation (chưng cất mô hình) là kỹ thuật chuyển giao tri thức từ một mô hình lớn, phức tạp (teacher model) sang một mô hình nhỏ, nhẹ hơn (student model). Phương pháp này sử dụng output phân phối xác suất từ mô hình teacher để huấn luyện mô hình student, giúp mô hình nhỏ hơn có thể bắt chước khả năng của mô hình lớn.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p><strong>Ưu điểm:</strong></p>
 <ul>
 <li>Giảm đáng kể kích thước mô hình (có thể giảm 50-90% tham số)</li>
@@ -555,11 +569,16 @@ Continued Pre-training (tiếp tục tiền huấn luyện) là quá trình hu�
 </tbody>
 </table>
 <p>Mỗi phương pháp tùy chỉnh mô hình Amazon Nova đều có vai trò riêng trong việc thích nghi mô hình ngôn ngữ lớn vào các ứng dụng thực tế:</p>
-<p><strong>Fine-tuning</strong>: Lựa chọn tối ưu khi cần mô hình phản hồi chính xác cho một tác vụ cụ thể, đặc biệt khi có sẵn dữ liệu có nhãn chất lượng.
-<strong>Distillation</strong>: Giải pháp hiệu quả khi cần triển khai mô hình trên các thiết bị có tài nguyên hạn chế, ưu tiên tốc độ phản hồi và hiệu quả chi phí.
-<strong>Continued Pre-training</strong>: Hướng đi phù hợp khi cần mô hình thấu hiểu sâu sắc về một lĩnh vực chuyên môn cụ thể, đặc biệt trong các ngành như y tế, luật pháp hay tài chính.</p>
-<p>Việc lựa chọn và kết hợp các phương pháp này cần căn cứ vào yêu cầu cụ thể về hiệu suất, tài nguyên sẵn có và đặc thù ứng dụng.
-Vì <strong>Distillation</strong> trên AWS Bedrock đang ở tình trạng preview, <strong>Continued Pre-training</strong> thì quá phức tạp và tốn chi phí cao, các bài toán thực tế ở các doanh nghiệp, <strong>Fine-tuning</strong> là một sự lụa chọn phổ biến hơn. Sau khi đã sử dụng và đánh giá thử mô hình Nova Lite, chúng tôi nhận ra Nova Lite chưa hoạt động tốt trên bài toán hỏi đáp dựa trên hình ảnh tiếng việt. Do đó, trong phạm vi workshop này, chúng tôi sẽ fine-tuning lại dựa trên bộ dữ liệu hỏi đáp trên hình ảnh tiếng việt.</p>
+<ul>
+<li><strong>Fine-tuning</strong>: Lựa chọn tối ưu khi cần mô hình phản hồi chính xác cho một tác vụ cụ thể, đặc biệt khi có sẵn dữ liệu có nhãn chất lượng.</li>
+<li><strong>Distillation</strong>: Giải pháp hiệu quả khi cần triển khai mô hình trên các thiết bị có tài nguyên hạn chế, ưu tiên tốc độ phản hồi và hiệu quả chi phí.</li>
+<li><strong>Continued Pre-training</strong>: Hướng đi phù hợp khi cần mô hình thấu hiểu sâu sắc về một lĩnh vực chuyên môn cụ thể, đặc biệt trong các ngành như y tế, luật pháp hay tài chính.</li>
+</ul>
+<p>Việc lựa chọn và kết hợp các phương pháp này cần căn cứ vào yêu cầu cụ thể về hiệu suất, tài nguyên sẵn có và đặc thù ứng dụng.</p>
+
+<div class="notices info" ><p>Vì <strong>Distillation</strong> trên AWS Bedrock đang ở tình trạng preview, <strong>Continued Pre-training</strong> thì quá phức tạp và tốn chi phí cao, các bài toán thực tế ở các doanh nghiệp, <strong>Fine-tuning</strong> là một sự lụa chọn phổ biến hơn. Sau khi đã sử dụng và đánh giá thử mô hình Nova Lite, chúng tôi nhận ra Nova Lite chưa hoạt động tốt trên bài toán hỏi đáp dựa trên hình ảnh tiếng việt. Do đó, trong phạm vi workshop này, chúng tôi sẽ fine-tuning lại dựa trên bộ dữ liệu hỏi đáp trên hình ảnh tiếng việt.</p>
+</div>
+
 
 
 
@@ -701,19 +720,19 @@ Vì <strong>Distillation</strong> trên AWS Bedrock đang ở tình trạng prev
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://cloudmindshub.github.io/workshop/js/clipboard.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.jquery.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery.sticky.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/featherlight.min.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/highlight.pack.js?1745415011"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/clipboard.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.jquery.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/jquery.sticky.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/featherlight.min.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/highlight.pack.js?1745417658"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://cloudmindshub.github.io/workshop/js/modernizr.custom-3.6.0.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/learn.js?1745415011"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/hugo-learn.js?1745415011"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/modernizr.custom-3.6.0.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/learn.js?1745417658"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/hugo-learn.js?1745417658"></script>
 
-    <link href="https://cloudmindshub.github.io/workshop/mermaid/mermaid.css?1745415011" rel="stylesheet" />
-    <script src="https://cloudmindshub.github.io/workshop/mermaid/mermaid.js?1745415011"></script>
+    <link href="https://cloudmindshub.github.io/workshop/mermaid/mermaid.css?1745417658" rel="stylesheet" />
+    <script src="https://cloudmindshub.github.io/workshop/mermaid/mermaid.js?1745417658"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
