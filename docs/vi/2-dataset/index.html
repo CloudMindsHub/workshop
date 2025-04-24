@@ -12,21 +12,21 @@
     <title>Chuẩn bị dataset :: Thiết lập AWS Account</title>
 
     
-    <link href="https://cloudmindshub.github.io/workshop/css/nucleus.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/fontawesome-all.min.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hybrid.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/featherlight.min.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/perfect-scrollbar.min.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/auto-complete.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/atom-one-dark-reasonable.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/theme.css?1745419002" rel="stylesheet">
-    <link href="https://cloudmindshub.github.io/workshop/css/hugo-theme.css?1745419002" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/nucleus.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/fontawesome-all.min.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/hybrid.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/featherlight.min.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/perfect-scrollbar.min.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/auto-complete.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/atom-one-dark-reasonable.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/theme.css?1745507329" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/hugo-theme.css?1745507329" rel="stylesheet">
     
-    <link href="https://cloudmindshub.github.io/workshop/css/theme-workshop.css?1745419002" rel="stylesheet">
+    <link href="https://cloudmindshub.github.io/workshop/css/theme-workshop.css?1745507329" rel="stylesheet">
     
     
 
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery-3.3.1.min.js?1745419002"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/jquery-3.3.1.min.js?1745507329"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/lunr.min.js?1745419002"></script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/auto-complete.js?1745419002"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/lunr.min.js?1745507329"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/auto-complete.js?1745507329"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/cloudmindshub.github.io\/workshop\/\/vi";
     
 </script>
-<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/search.js?1745419002"></script>
+<script type="text/javascript" src="https://cloudmindshub.github.io/workshop/js/search.js?1745507329"></script>
 
     
   </div>
@@ -426,8 +426,7 @@
     <li>
       <ul>
         <li><a href="#tổng-quan-về-bộ-dữ-liệu">Tổng quan về bộ dữ liệu</a></li>
-        <li><a href="#tiền-xử-lý-dữ-liệu">Tiền xử lý dữ liệu</a></li>
-        <li><a href="#định-dạng-dữ-liệu-theo-format-aws-bedrock">Định dạng dữ liệu theo format AWS Bedrock</a></li>
+        <li><a href="#nội-dung-chính">Nội dung chính</a></li>
       </ul>
     </li>
   </ul>
@@ -456,198 +455,31 @@
 
 
 	<h3 id="tổng-quan-về-bộ-dữ-liệu">Tổng quan về bộ dữ liệu</h3>
+<ul>
+<li>
 <p>Bộ dữ liệu này là phần mở rộng của dự án Viet-Doc VAQ, được xây dựng từ 64.765 trang tài liệu giáo dục tiếng Việt 🇻🇳, bao gồm: sách bài tập, sách chuyên đề, giáo án từ các nhà xuất bản chính thống như Bộ Giáo dục &amp; Đào tạo, Cánh Diều, Chân Trời Sáng Tạo, Kết Nối Tri Thức,&hellip; phủ rộng tất cả các môn học từ lớp 1 đến lớp 12.</p>
+</li>
+<li>
 <p>Mỗi trang tài liệu đã được xử lý và chú thích kỹ lưỡng bằng các kỹ thuật Visual Question Answering (VQA), tạo nên một bộ dữ liệu có chất lượng cao và giàu thông tin.</p>
+</li>
+<li>
 <p>Bộ dữ liệu bao gồm 388.277 cặp mô tả chi tiết và câu hỏi - trả lời theo ngữ cảnh, được tự động tạo ra bởi Gemini 1.5 Flash – mô hình AI hàng đầu của Google, đang dẫn đầu bảng xếp hạng WildVision Arena. Nhờ đó, đây là nguồn tài nguyên lý tưởng cho các mục tiêu nghiên cứu và ứng dụng giáo dục hiện đại.</p>
+</li>
+<li>
 <p>Các môn học bao gồm: Toán học 📐, Ngữ văn 📚, Tiếng Anh 🇬🇧, Vật lý ⚛️, Hóa học 🧪, Sinh học 🌱, Lịch sử 📜, Địa lý 🌍, Giáo dục công dân 🏫, Tin học 💻, Công nghệ 🛠️, Âm nhạc 🎵, Mỹ thuật 🎨, Thể dục ⚽,&hellip;</p>
+</li>
+</ul>
 <p>Vì chi phí có giới hạn, chỉ để thử nghiệm việc fine-tuning mô hình trên AWS Bedrock, trong workshop này chỉ dùng 100 mẫu dữ liệu để huấn luyện (số lượng mẫu tối thiểu theo yêu cầu của Bedrock ).</p>
-<h3 id="tiền-xử-lý-dữ-liệu">Tiền xử lý dữ liệu</h3>
-<ul>
-<li>Tải dữ liệu từ Hugging Face: <a href="https://huggingface.co/datasets/5CD-AI/Viet-Doc-VQA-II/tree/main/data">https://huggingface.co/datasets/5CD-AI/Viet-Doc-VQA-II/tree/main/data</a></li>
-</ul>
 <p><img src="https://cloudmindshub.github.io/workshop/images/2-dataset/data-hf.png" alt="Architecture"></p>
-<ul>
-<li>Nhập thư viện cần thiết</li>
-</ul>
-<pre tabindex="0"><code>import os
-import ast
-import csv
-import json
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-</code></pre><ul>
-<li>Đọc file parquet thành Dataframe</li>
-</ul>
-<pre tabindex="0"><code>df = pd.read_parquet(&#39;train-00000-of-00034.parquet&#39;, engine=&#34;pyarrow&#34;)
 
-df[&#39;conversations&#39;] = df[&#39;conversations&#39;].apply(
-    lambda x: json.dumps(x.tolist(), ensure_ascii=False) if isinstance(x, np.ndarray) else json.dumps(x, ensure_ascii=False)
-)
-
-df = df.head(100)
-</code></pre><ul>
-<li>Chia dữ liệu thành 3 bộ train (90%), test (10%)</li>
-</ul>
-<pre tabindex="0"><code># Chia tập train (90%) và tập test (10%)
-train_df, test_df = train_test_split(df, test_size=0.1)
-
-train_df.to_csv(&#34;viet_vqa_train.csv&#34;, index=False, encoding=&#39;utf-8&#39;)
-test_df.to_csv(&#34;viet_vqa_test.csv&#34;, index=False, encoding=&#39;utf-8&#39;)
-
-df_train = pd.read_csv(&#39;viet_vqa_train.csv&#39;)
-df_test = pd.read_csv(&#39;viet_vqa_test.csv&#39;)
-</code></pre><p>-&raquo;&raquo;&raquo;&raquo;&raquo;&raquo;&raquo;&raquo;&gt;1 tấm hình chỗ này show console số lượng dữ liệu</p>
-<h3 id="định-dạng-dữ-liệu-theo-format-aws-bedrock">Định dạng dữ liệu theo format AWS Bedrock</h3>
-<ul>
-<li>Định dạng mẫu của AWS Bedrock</li>
-</ul>
-<pre tabindex="0"><code>item = {
-    &#34;schemaVersion&#34;: &#34;bedrock-conversation-2024&#34;,
-    &#34;system&#34;: [
-        {
-            &#34;text&#34;: (
-                &#34;You are an AI assistant specialized in Q&amp;A based on Vietnamese images. &#34;
-                &#34;You can analyze image content, recognize text (OCR), understand context, &#34;
-                &#34;and answer questions based on extracted information. &#34;
-                &#34;Behavior Guidelines Text Recognition: Use OCR to extract textual content from images. &#34;
-                &#34;Context Understanding: Identify the meaning of the extracted text and image to provide accurate answers. &#34;
-                &#34;Concise Responses: Provide clear, precise, and natural Vietnamese responses. &#34;
-                &#34;Image Analysis Support: If a question requires more than text extraction, analyze the visual content as well. &#34;
-                &#34;Professional &amp; Objective: Respond factually based on the image, avoiding assumptions beyond the given data.&#34;
-            )
-        }
-    ],
-    &#34;messages&#34;: [
-        {
-            &#34;role&#34;: &#34;user&#34;,
-            &#34;content&#34;: [
-                {&#34;text&#34;: &#34;&#34;},
-                {
-                    &#34;image&#34;: {
-                        &#34;format&#34;: &#34;png&#34;,
-                        &#34;source&#34;: {
-                            &#34;s3Location&#34;: {
-                                &#34;uri&#34;: &#34;s3://test-fineture-novalite/data-fineture/image_sample_1.jpg&#34;,
-                                &#34;bucketOwner&#34;: &#34;536*********&#34;
-                            }
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            &#34;role&#34;: &#34;assistant&#34;,
-            &#34;content&#34;: [
-                {&#34;text&#34;: &#34;&#34;}
-            ]
-        }
-    ]
-}
-</code></pre><ul>
-<li>Hàm định dạng dữ liệu, thông điêp đầu tiên của role user sẽ chứa thêm hình ảnh, kết hợp với các thông điệp trong mẫu dữ liệu tạo ra 1 conversation.</li>
-</ul>
-<pre tabindex="0"><code>def create_jsonl_item(row):
-    try:
-        conversations = row.get(&#34;conversations&#34;)
-        json_conversation = json.loads(conversations)
-
-        for item in json_conversation:
-            if isinstance(item[&#34;content&#34;], str):
-                item[&#34;content&#34;] = [{&#34;text&#34;: item[&#34;content&#34;]}]
-
-        message_id = row.get(&#34;id&#34;)
-        if isinstance(conversations, str):
-            conversations = json.loads(conversations)
-            
-        if not isinstance(conversations, list):
-            raise ValueError(&#34;Invalid JSON format in conversations column&#34;)
-
-        if len(json_conversation) &gt; 0 and json_conversation[0][&#34;role&#34;] == &#34;user&#34;:
-            image_info = {
-                &#34;image&#34;: {
-                    &#34;format&#34;: &#34;png&#34;,
-                    &#34;source&#34;: {
-                        &#34;s3Location&#34;: {
-                            &#34;uri&#34;: f&#34;s3://data-vqa-fine-tune-nova/train/image_{message_id}.png&#34;,
-                            &#34;bucketOwner&#34;: &#34;536*********&#34;
-                        }
-                    }
-                }
-            }
-            content_user = json_conversation[0][&#34;content&#34;]
-            content_user.append(image_info)
-            json_conversation[0][&#34;content&#34;] = content_user
-        print(json_conversation)
-        return {
-            &#34;schemaVersion&#34;: &#34;bedrock-conversation-2024&#34;,
-            &#34;system&#34;: [
-                {
-                    &#34;text&#34;: (
-                        &#34;You are an AI assistant specialized in Q&amp;A based on Vietnamese images. &#34;
-                        &#34;You can analyze image content, recognize text (OCR), understand context, &#34;
-                        &#34;and answer questions based on extracted information. &#34;
-                        &#34;Behavior Guidelines Text Recognition: Use OCR to extract textual content from images. &#34;
-                        &#34;Context Understanding: Identify the meaning of the extracted text and image to provide accurate answers. &#34;
-                        &#34;Concise Responses: Provide clear, precise, and natural Vietnamese responses. &#34;
-                        &#34;Image Analysis Support: If a question requires more than text extraction, analyze the visual content as well. &#34;
-                        &#34;Professional &amp; Objective: Respond factually based on the image, avoiding assumptions beyond the given data.&#34;
-                    )
-                }
-            ],
-            &#34;messages&#34;: json_conversation
-        }
-    except Exception as e:
-        print(f&#34;Lỗi khi xử lý conversations: {e}, row conversation: {conversations}&#34;)
-        return None
-</code></pre><ul>
-<li>Đọc dữ liệu train từ file <strong>viet_vqa_train.csv</strong></li>
-</ul>
-<pre tabindex="0"><code>df_train = pd.read_csv(&#39;viet_vqa_train.csv&#39;)
-df_train
-</code></pre><ul>
-<li>Chuyển đổi hình ảnh dạng bytes thành file png và lưu trong một folder để upload lên s3 bucket.</li>
-</ul>
-<pre tabindex="0"><code>output_folder = &#39;train_images&#39;
-
-if not os.path.exists(output_folder):
-    os.makedirs(output_folder)
-
-for idx, row in df_train.iterrows():
-    try:
-        image_bytes = eval(row[&#39;image&#39;])
-        image_data = image_bytes[&#39;bytes&#39;] if isinstance(image_bytes, dict) else image_bytes
-
-        img = Image.open(io.BytesIO(image_data))
-
-        file_path = os.path.join(output_folder, f&#39;image_{idx}.png&#39;)
-
-        img.save(file_path, format=&#39;PNG&#39;)
-
-        print(f&#34;Đã lưu ảnh: {file_path}&#34;)
-    except Exception as e:
-        print(f&#34;Lỗi khi xử lý ảnh ở dòng {idx}: {e}&#34;)
-</code></pre><ul>
-<li>Apply cho cả Dataframe</li>
-</ul>
-<pre tabindex="0"><code>jsonl_data = df_train.apply(create_jsonl_item, axis=1).tolist()
-</code></pre><ul>
-<li>Lưu lại thành file jsonl</li>
-</ul>
-<pre tabindex="0"><code>jsonl_data = [item for item in jsonl_data if item is not None]
-
-with open(&#34;data_train_90.jsonl&#34;, &#34;w&#34;, encoding=&#34;utf-8&#34;) as f:
-    for item in jsonl_data:
-        json.dump(item, f, ensure_ascii=False)
-        f.write(&#34;\n&#34;)
-</code></pre>
-<div class="notices note" ><p>Tương tự như cách làm của bộ dữ liệu train, ta sẽ áp dụng cho file <strong>viet_vqa_test.csv</strong>.</p>
+<div class="notices tip" ><p>Tải dữ liệu từ Hugging Face: <a href="https://huggingface.co/datasets/5CD-AI/Viet-Doc-VQA-II/tree/main/data">https://huggingface.co/datasets/5CD-AI/Viet-Doc-VQA-II/tree/main/data</a></p>
 </div>
 
-<ul>
-<li>Upload tất cả lên s3. Ta được cấu trúc bộ dữ liệu trên s3 như hình bên dưới.</li>
-</ul>
-<p><img src="https://cloudmindshub.github.io/workshop/images/2-dataset/s3_dataset.png" alt="S3-Dataset"></p>
+<h3 id="nội-dung-chính">Nội dung chính</h3>
+<ol>
+<li><a href="2.1-handle/">Xử lý dữ liệu</a></li>
+<li><a href="2.2-upload/">Upload dữ liệu</a></li>
+</ol>
 
 
 
@@ -826,19 +658,19 @@ with open(&#34;data_train_90.jsonl&#34;, &#34;w&#34;, encoding=&#34;utf-8&#34;) 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://cloudmindshub.github.io/workshop/js/clipboard.min.js?1745419002"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.min.js?1745419002"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.jquery.min.js?1745419002"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/jquery.sticky.js?1745419002"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/featherlight.min.js?1745419002"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/highlight.pack.js?1745419002"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/clipboard.min.js?1745507329"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.min.js?1745507329"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/perfect-scrollbar.jquery.min.js?1745507329"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/jquery.sticky.js?1745507329"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/featherlight.min.js?1745507329"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/highlight.pack.js?1745507329"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://cloudmindshub.github.io/workshop/js/modernizr.custom-3.6.0.js?1745419002"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/learn.js?1745419002"></script>
-    <script src="https://cloudmindshub.github.io/workshop/js/hugo-learn.js?1745419002"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/modernizr.custom-3.6.0.js?1745507329"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/learn.js?1745507329"></script>
+    <script src="https://cloudmindshub.github.io/workshop/js/hugo-learn.js?1745507329"></script>
 
-    <link href="https://cloudmindshub.github.io/workshop/mermaid/mermaid.css?1745419002" rel="stylesheet" />
-    <script src="https://cloudmindshub.github.io/workshop/mermaid/mermaid.js?1745419002"></script>
+    <link href="https://cloudmindshub.github.io/workshop/mermaid/mermaid.css?1745507329" rel="stylesheet" />
+    <script src="https://cloudmindshub.github.io/workshop/mermaid/mermaid.js?1745507329"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
